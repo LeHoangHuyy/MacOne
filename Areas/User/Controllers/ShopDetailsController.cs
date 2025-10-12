@@ -21,14 +21,20 @@ namespace Macone.Areas.User.Controllers
 
         public IActionResult ProductDetail(string id)
         {
-            var sanPham = _db.SanPhams.SingleOrDefault(x => x.MaSp == id);
-            var anhSanPhams = _db.Anhs.Where(x => x.MaSp == id).ToList();
+            var sanPham = _db.Products.SingleOrDefault(x => x.Id == id);
+            var anhSanPhams = _db.Images.Where(x => x.ProductId == id).ToList();
             if (sanPham == null)
             {
                 return RedirectToAction("Index", "Shop");
             }
             var sanPhamViewModel = new ProductDetailViewModel(sanPham, anhSanPhams);
             return View(sanPhamViewModel);
+        }
+
+        public IActionResult RandomProduct()
+        {
+            var products = _db.Products.OrderBy(r => Guid.NewGuid()).Take(4).ToList();
+            return View(products);
         }
     }
 }

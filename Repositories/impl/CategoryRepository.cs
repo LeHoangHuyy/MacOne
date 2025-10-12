@@ -13,7 +13,7 @@ namespace Macone.Repositories.impl
 
         public Category Add(Category category)
         {
-            _context.Loais.Add(category);
+            _context.Categories.Add(category);
             _context.SaveChanges();
             return category;
         }
@@ -25,17 +25,17 @@ namespace Macone.Repositories.impl
 
         public IEnumerable<Category> GetAll()
         {
-            return _context.Loais;
+            return _context.Categories;
         }
 
         public Category GetById(string id)
         {
-            return _context.Loais.Find(id);
+            return _context.Categories.Find(id);
         }
 
         public Category Update(Category category)
         {
-            _context.Loais.Update(category);
+            _context.Categories.Update(category);
             _context.SaveChanges();
             return category;
         }

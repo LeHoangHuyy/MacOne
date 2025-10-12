@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Macone.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251012065717_UpdateTableUser")]
-    partial class UpdateTableUser
+    [Migration("20251012141506_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,113 +27,113 @@ namespace Macone.Data.Migrations
 
             modelBuilder.Entity("Macone.Models.Entities.Category", b =>
                 {
-                    b.Property<string>("MaLoai")
+                    b.Property<string>("Id")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("TenLoai")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("MaLoai");
+                    b.HasKey("Id");
 
-                    b.ToTable("tLoai", (string)null);
+                    b.ToTable("tCategory", (string)null);
                 });
 
             modelBuilder.Entity("Macone.Models.Entities.Image", b =>
                 {
-                    b.Property<int>("MaAnh")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaAnh"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("MaSp")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("TenFileAnh")
+                    b.Property<string>("ImageFileName")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.HasKey("MaAnh");
+                    b.Property<string>("ProductId")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
-                    b.HasIndex("MaSp");
+                    b.HasKey("Id");
 
-                    b.ToTable("tAnh", (string)null);
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("tImage", (string)null);
                 });
 
             modelBuilder.Entity("Macone.Models.Entities.Product", b =>
                 {
-                    b.Property<string>("MaSp")
+                    b.Property<string>("Id")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("AnhDaiDien")
+                    b.Property<string>("Avatar")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<long>("Gia")
-                        .HasColumnType("BIGINT");
-
-                    b.Property<string>("MaLoai")
+                    b.Property<string>("CategoryId")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("MoTa")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR(MAX)");
-
-                    b.Property<DateTime>("NgayTao")
+                    b.Property<DateTime>("CreatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
                         .HasDefaultValueSql("GETDATE()");
 
-                    b.Property<string>("TenSp")
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR(MAX)");
+
+                    b.Property<string>("Information")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR(MAX)");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("ThongTin")
-                        .IsRequired()
-                        .HasColumnType("NVARCHAR(MAX)");
+                    b.Property<long>("Price")
+                        .HasColumnType("BIGINT");
 
-                    b.HasKey("MaSp");
+                    b.HasKey("Id");
 
-                    b.HasIndex("MaLoai");
+                    b.HasIndex("CategoryId");
 
-                    b.ToTable("tSanPham", (string)null);
+                    b.ToTable("tProduct", (string)null);
                 });
 
             modelBuilder.Entity("Macone.Models.Entities.User", b =>
                 {
-                    b.Property<int>("MaUser")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaUser"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("MatKhau")
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("TaiKhoan")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("ViTri")
+                    b.Property<string>("Role")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 
-                    b.HasKey("MaUser");
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.HasKey("Id");
 
                     b.ToTable("tUser", (string)null);
                 });
@@ -141,8 +141,8 @@ namespace Macone.Data.Migrations
             modelBuilder.Entity("Macone.Models.Entities.Image", b =>
                 {
                     b.HasOne("Macone.Models.Entities.Product", "SanPham")
-                        .WithMany("Anhs")
-                        .HasForeignKey("MaSp")
+                        .WithMany("Images")
+                        .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -151,23 +151,23 @@ namespace Macone.Data.Migrations
 
             modelBuilder.Entity("Macone.Models.Entities.Product", b =>
                 {
-                    b.HasOne("Macone.Models.Entities.Category", "Loai")
-                        .WithMany("SanPhams")
-                        .HasForeignKey("MaLoai")
+                    b.HasOne("Macone.Models.Entities.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Loai");
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("Macone.Models.Entities.Category", b =>
                 {
-                    b.Navigation("SanPhams");
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("Macone.Models.Entities.Product", b =>
                 {
-                    b.Navigation("Anhs");
+                    b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
         }

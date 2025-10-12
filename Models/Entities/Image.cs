@@ -5,9 +5,9 @@ namespace Macone.Models.Entities
 {
     public class Image
     {
-        public int MaAnh { get; set; }
-        public string MaSp { get; set; }
-        public string TenFileAnh { get; set; }
+        public int Id { get; set; }
+        public string ImageFileName { get; set; }
+        public string ProductId { get; set; }
         public Product SanPham { get; set; }
     }
 }

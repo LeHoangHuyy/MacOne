@@ -5,8 +5,8 @@ namespace Macone.Models.Entities
 {
     public class Category
     {
-        public string MaLoai { get; set; }
-        public string TenLoai { get; set; }
-        public ICollection<Product> SanPhams { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
+        public ICollection<Product> Products { get; set; }
     }
 }

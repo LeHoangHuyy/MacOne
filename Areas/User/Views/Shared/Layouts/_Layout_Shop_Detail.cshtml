@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Areas/User/Views/Shared/Layouts/Base/_Layout_Base.cshtml";
+}
+
+<!-- Page Preloder -->
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Header Section Begin -->
+@await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Header.cshtml")
+<!-- Header Section End -->
+
+<!-- Product Details Section Begin -->
+@RenderBody()
+<!-- Product Details Section End -->
+
+<!-- Footer Section Begin -->
+@await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Footer.cshtml")
+<!-- Footer Section End -->

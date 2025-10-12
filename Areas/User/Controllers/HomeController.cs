@@ -17,14 +17,14 @@ namespace Macone.Areas.User.Controllers
 
         public IActionResult Index()
         {
-            var listSanPham = _db.SanPhams.Take(8).ToList();
+            var listSanPham = _db.Products.Take(8).ToList();
             return View(listSanPham);
         }
 
         public IActionResult ProductClassification(string id)
         {
-            var listSanPham = _db.SanPhams
-                .Where(x => x.MaLoai == id)
+            var listSanPham = _db.Products
+                .Where(x => x.CategoryId == id)
                 .Take(8)
                 .ToList();
             return View(listSanPham);

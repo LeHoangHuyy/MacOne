@@ -4,12 +4,12 @@ namespace Macone.Areas.User.ViewModels
 {
     public class ProductDetailViewModel
     {
-        public Product SanPham { get; set; }
-        public List<Image> AnhSanPhams { get; set; }
-        public ProductDetailViewModel(Product SanPham, List<Image> AnhSanPhams)
+        public Product Product { get; set; }
+        public List<Image> Images { get; set; }
+        public ProductDetailViewModel(Product Product, List<Image> Images)
         {
-            this.SanPham = SanPham;
-            this.AnhSanPhams = AnhSanPhams;
+            this.Product = Product;
+            this.Images = Images;
         }
     }
 }

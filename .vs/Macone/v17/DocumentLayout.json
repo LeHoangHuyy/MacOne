@@ -3,28 +3,40 @@
   "WorkspaceRootPath": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shared\\_layoutuserhome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shared\\_layoutuserhome.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\controllers\\shopcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\controllers\\shopcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shared\\_layoutusershop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shared\\_layoutusershop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shared\\layouts\\_layout_shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shared\\layouts\\_layout_shop.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shared\\_layoutusershopdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shared\\_layoutusershopdetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shared\\_layoutusershoppingcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shared\\_layoutusershoppingcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shared\\layouts\\_layout_home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shared\\layouts\\_layout_home.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shopdetails\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shopdetails\\productdetail.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shared\\layouts\\base\\_layout_base.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shared\\layouts\\base\\_layout_base.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shop\\productclassification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shop\\productclassification.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\shared\\partials\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\shared\\partials\\_footer.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|d:\\utc\\laptrinhweb\\baitaplon\\tmp2\\macone\\areas\\user\\controllers\\shopdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8A5CF99D-83BF-4F15-8A83-F87738CD174E}|Macone.csproj|solutionrelative:areas\\user\\controllers\\shopdetailscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +46,99 @@
       "DocumentGroups": [
         {
           "DockedWidth": 246,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ShopController.cs",
+              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Controllers\\ShopController.cs",
+              "RelativeDocumentMoniker": "Areas\\User\\Controllers\\ShopController.cs",
+              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Controllers\\ShopController.cs",
+              "RelativeToolTip": "Areas\\User\\Controllers\\ShopController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T16:31:06.035Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_Layout_Shop.cshtml",
+              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\Layouts\\_Layout_Shop.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shared\\Layouts\\_Layout_Shop.cshtml",
+              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\Layouts\\_Layout_Shop.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\Shared\\Layouts\\_Layout_Shop.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-12T16:30:45.174Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "_Layout_Home.cshtml",
+              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\Layouts\\_Layout_Home.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shared\\Layouts\\_Layout_Home.cshtml",
+              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\Layouts\\_Layout_Home.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\Shared\\Layouts\\_Layout_Home.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-12T16:30:35.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductDetail.cshtml",
+              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\ShopDetails\\ProductDetail.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\ShopDetails\\ProductDetail.cshtml",
+              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\ShopDetails\\ProductDetail.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\ShopDetails\\ProductDetail.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-12T16:29:32.538Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout_Base.cshtml",
+              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\Layouts\\Base\\_Layout_Base.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shared\\Layouts\\Base\\_Layout_Base.cshtml",
+              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\Layouts\\Base\\_Layout_Base.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\Shared\\Layouts\\Base\\_Layout_Base.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-12T16:29:07.707Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_Footer.cshtml",
+              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\Partials\\_Footer.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shared\\Partials\\_Footer.cshtml",
+              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\Partials\\_Footer.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\Shared\\Partials\\_Footer.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-12T16:24:58.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-12T16:19:16.778Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
@@ -46,80 +149,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "_LayoutUserShoppingCart.cshtml",
-              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\_LayoutUserShoppingCart.cshtml",
-              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shared\\_LayoutUserShoppingCart.cshtml",
-              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\_LayoutUserShoppingCart.cshtml",
-              "RelativeToolTip": "Areas\\User\\Views\\Shared\\_LayoutUserShoppingCart.cshtml",
-              "ViewState": "AgIAACwAAAAAAAAAAAArwEYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T13:06:14.844Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "_LayoutUserShopDetails.cshtml",
-              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\_LayoutUserShopDetails.cshtml",
-              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shared\\_LayoutUserShopDetails.cshtml",
-              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\_LayoutUserShopDetails.cshtml",
-              "RelativeToolTip": "Areas\\User\\Views\\Shared\\_LayoutUserShopDetails.cshtml",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAAEkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T13:06:08.06Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "_LayoutUserShop.cshtml",
-              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\_LayoutUserShop.cshtml",
-              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shared\\_LayoutUserShop.cshtml",
-              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\_LayoutUserShop.cshtml",
-              "RelativeToolTip": "Areas\\User\\Views\\Shared\\_LayoutUserShop.cshtml",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAEkAAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T13:06:00.391Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_LayoutUserHome.cshtml",
-              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\_LayoutUserHome.cshtml",
-              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shared\\_LayoutUserHome.cshtml",
-              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shared\\_LayoutUserHome.cshtml",
-              "RelativeToolTip": "Areas\\User\\Views\\Shared\\_LayoutUserHome.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAEgAAABPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T13:05:51.77Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Areas\\User\\Views\\Home\\Index.cshtml",
-              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Areas\\User\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAA3AAAAAAAAAA==",
+              "Title": "ProductClassification.cshtml",
+              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shop\\ProductClassification.cshtml",
+              "RelativeDocumentMoniker": "Areas\\User\\Views\\Shop\\ProductClassification.cshtml",
+              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\Shop\\ProductClassification.cshtml",
+              "RelativeToolTip": "Areas\\User\\Views\\Shop\\ProductClassification.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T13:04:26.761Z",
+              "WhenOpened": "2025-10-12T16:19:10.842Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ProductDetail.cshtml",
-              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\ShopDetails\\ProductDetail.cshtml",
-              "RelativeDocumentMoniker": "Areas\\User\\Views\\ShopDetails\\ProductDetail.cshtml",
-              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Views\\ShopDetails\\ProductDetail.cshtml",
-              "RelativeToolTip": "Areas\\User\\Views\\ShopDetails\\ProductDetail.cshtml",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAD8AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-10-12T13:04:10.502Z",
+              "DocumentIndex": 8,
+              "Title": "ShopDetailsController.cs",
+              "DocumentMoniker": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Controllers\\ShopDetailsController.cs",
+              "RelativeDocumentMoniker": "Areas\\User\\Controllers\\ShopDetailsController.cs",
+              "ToolTip": "D:\\UTC\\LapTrinhWeb\\BaiTapLon\\tmp2\\Macone\\Areas\\User\\Controllers\\ShopDetailsController.cs",
+              "RelativeToolTip": "Areas\\User\\Controllers\\ShopDetailsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T16:18:04.054Z",
               "EditorCaption": ""
             }
           ]

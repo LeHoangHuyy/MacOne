@@ -2,7 +2,7 @@
 @using X.PagedList.Mvc.Core
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
-    Layout = "~/Areas/User/Views/Shared/_LayoutUserShop.cshtml";
+    Layout = "~/Areas/User/Views/Shared/Layouts/_Layout_Shop.cshtml";
 }
 
 @model X.PagedList.IPagedList<Product>
@@ -13,7 +13,7 @@
         <div class="col-lg-4 col-md-6 col-sm-6">
             <div class="product__item">
                 <div class="featured__item__pic set-bg"
-                     data-setbg="@Url.Content("../../../../user-assets/img/product/" + item.AnhDaiDien)">
+                     data-setbg="@Url.Content("../../../../user-assets/img/product/" + item.Avatar)">
                     <ul class="featured__item__pic__hover">
                         <li>
                             <a href="#">
@@ -33,8 +33,8 @@
                     </ul>
                 </div>
                 <div class="featured__item__text">
-                    <h6><a asp-area="User" asp-controller="ShopDetails" asp-action="ProductDetail" asp-route-id="@item.MaSp">@item.TenSp</a></h6>
-                    <h5>@string.Format("{0:N0}₫", item.Gia)</h5>
+                    <h6><a asp-area="User" asp-controller="ShopDetails" asp-action="ProductDetail" asp-route-id="@item.Id">@item.Name</a></h6>
+                    <h5>@string.Format("{0:N0}₫", item.Price)</h5>
                 </div>
             </div>
         </div>

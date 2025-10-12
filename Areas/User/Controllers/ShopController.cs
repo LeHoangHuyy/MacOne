@@ -21,24 +21,11 @@ namespace Macone.Areas.User.Controllers
             int pageSize = 12;
             int pageNumber = page == null || page <= 0 ? 1 : page.Value;
 
-            var listSanPham = _db.SanPhams.AsNoTracking().OrderBy(x => x.NgayTao);
+            var listSanPham = _db.Products.AsNoTracking().OrderBy(x => x.CreatedAt);
 
             PagedList<Product> lst = new PagedList<Product>(listSanPham, pageNumber, pageSize);
             return View(lst);
         }
 
-        public IActionResult ProductClassification(string id, int? page)
-        {
-            int pageSize = 12;
-            int pageNumber = page == null || page <= 0 ? 1 : page.Value;
-
-            var listSanPham = _db.SanPhams
-                .Where(x => x.MaLoai == id)
-                .OrderBy(x => x.NgayTao)
-                .ToList();
-
-            PagedList<Product> lst = new PagedList<Product>(listSanPham, pageNumber, pageSize);
-            return View(lst);
-        }
     }
 }

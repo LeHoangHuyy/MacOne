@@ -28,6 +28,10 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Shared/_LayoutAdminHome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbkhvbWUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,20 +48,32 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xDYXRlZ29yeVRhYk1lbnVcVGFiTWVudS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/_LayoutUserHome.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcX0xheW91dFVzZXJIb21lLmNzaHRtbA==
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/Layouts/Base/_Layout_Base.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcTGF5b3V0c1xCYXNlXF9MYXlvdXRfQmFzZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/_LayoutUserShop.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcX0xheW91dFVzZXJTaG9wLmNzaHRtbA==
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/Layouts/_Layout_Home.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcTGF5b3V0c1xfTGF5b3V0X0hvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/_LayoutUserShopDetails.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcX0xheW91dFVzZXJTaG9wRGV0YWlscy5jc2h0bWw=
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/Layouts/_Layout_Shop.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcTGF5b3V0c1xfTGF5b3V0X1Nob3AuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/_LayoutUserShoppingCart.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcX0xheW91dFVzZXJTaG9wcGluZ0NhcnQuY3NodG1s
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/Layouts/_Layout_Shop_Detail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcTGF5b3V0c1xfTGF5b3V0X1Nob3BfRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/Partials/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcUGFydGlhbHNcX0Zvb3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/Partials/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcUGFydGlhbHNcX0hlYWRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/Partials/_SideBar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcUGFydGlhbHNcX1NpZGVCYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/ShopDetails/Index.cshtml]

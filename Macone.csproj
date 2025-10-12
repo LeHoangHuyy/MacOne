@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Admin\ViewModels\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Data\Migrations\" />
     <Folder Include="wwwroot\admin-assets\" />
     <Folder Include="wwwroot\img\" />

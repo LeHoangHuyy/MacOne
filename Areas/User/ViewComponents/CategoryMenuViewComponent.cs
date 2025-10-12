@@ -14,7 +14,7 @@ namespace Macone.Areas.User.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var categories = _repository.GetAll().OrderBy(x => x.TenLoai);
+            var categories = _repository.GetAll().OrderBy(x => x.Name);
             return View("Menu", categories);
         }
     }

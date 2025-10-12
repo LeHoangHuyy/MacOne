@@ -11,9 +11,9 @@ namespace Macone.Data
 
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
-        public DbSet<Category> Loais { get; set; }
-        public DbSet<Product> SanPhams { get; set; }
-        public DbSet<Image> Anhs { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Image> Images { get; set; }
         public DbSet<User> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,29 +21,29 @@ namespace Macone.Data
             base.OnModelCreating(modelBuilder);
 
 
-            modelBuilder.Entity<Category>().ToTable("tLoai");
-            modelBuilder.Entity<Product>().ToTable("tSanPham");
-            modelBuilder.Entity<Image>().ToTable("tAnh");
+            modelBuilder.Entity<Category>().ToTable("tCategory");
+            modelBuilder.Entity<Product>().ToTable("tProduct");
+            modelBuilder.Entity<Image>().ToTable("tImage");
             modelBuilder.Entity<User>().ToTable("tUser");
 
 
             // Category (tLoai)
             modelBuilder.Entity<Category>(entity =>
             {
-                entity.HasKey(c => c.MaLoai);
+                entity.HasKey(c => c.Id);
 
-                entity.Property(c => c.MaLoai)
+                entity.Property(c => c.Id)
                       .HasMaxLength(50)
                       .IsRequired();
 
-                entity.Property(c => c.TenLoai)
+                entity.Property(c => c.Name)
                       .HasMaxLength(100)
                       .IsRequired();
 
                 // 1 - n: 1 Category -> n Product
-                entity.HasMany(c => c.SanPhams)
-                      .WithOne(p => p.Loai)
-                      .HasForeignKey(p => p.MaLoai)
+                entity.HasMany(c => c.Products)
+                      .WithOne(p => p.Category)
+                      .HasForeignKey(p => p.CategoryId)
                       .OnDelete(DeleteBehavior.Cascade); // Xóa loại => xóa sản phẩm
             });
 
@@ -51,40 +51,40 @@ namespace Macone.Data
             // Product (tSanPham)
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.HasKey(p => p.MaSp);
+                entity.HasKey(p => p.Id);
 
-                entity.Property(p => p.MaSp)
+                entity.Property(p => p.Id)
                       .HasMaxLength(50)
                       .IsRequired();
 
-                entity.Property(p => p.TenSp)
+                entity.Property(p => p.Name)
                       .HasMaxLength(100)
                       .IsRequired();
 
-                entity.Property(p => p.MaLoai)
+                entity.Property(p => p.CategoryId)
                       .HasMaxLength(50)
                       .IsRequired();
 
-                entity.Property(p => p.Gia)
+                entity.Property(p => p.Price)
                       .HasColumnType("BIGINT")
                       .IsRequired();
 
-                entity.Property(p => p.AnhDaiDien)
+                entity.Property(p => p.Avatar)
                       .HasMaxLength(200);
 
-                entity.Property(p => p.MoTa)
+                entity.Property(p => p.Description)
                       .HasColumnType("NVARCHAR(MAX)");
 
-                entity.Property(p => p.ThongTin)
+                entity.Property(p => p.Information)
                       .HasColumnType("NVARCHAR(MAX)");
 
-                entity.Property(p => p.NgayTao)
+                entity.Property(p => p.CreatedAt)
                       .HasDefaultValueSql("GETDATE()");
 
                 // 1 - n: 1 Product -> n Image
-                entity.HasMany(p => p.Anhs)
+                entity.HasMany(p => p.Images)
                       .WithOne(i => i.SanPham)
-                      .HasForeignKey(i => i.MaSp)
+                      .HasForeignKey(i => i.ProductId)
                       .OnDelete(DeleteBehavior.Cascade);
             });
 
@@ -92,16 +92,16 @@ namespace Macone.Data
             // Image (tAnh)
             modelBuilder.Entity<Image>(entity =>
             {
-                entity.HasKey(i => i.MaAnh);
+                entity.HasKey(i => i.Id);
 
-                entity.Property(i => i.MaAnh)
+                entity.Property(i => i.Id)
                       .ValueGeneratedOnAdd();
 
-                entity.Property(i => i.MaSp)
+                entity.Property(i => i.ProductId)
                       .HasMaxLength(50)
                       .IsRequired();
 
-                entity.Property(i => i.TenFileAnh)
+                entity.Property(i => i.ImageFileName)
                       .HasMaxLength(100);
             });
             
@@ -109,20 +109,20 @@ namespace Macone.Data
             //  User (tUser)
             modelBuilder.Entity<User>(entity =>
             {
-                entity.HasKey(u => u.MaUser);
+                entity.HasKey(u => u.Id);
 
-                entity.Property(e => e.MaUser)
+                entity.Property(e => e.Id)
                       .ValueGeneratedOnAdd();
 
-                entity.Property(u => u.TaiKhoan)
+                entity.Property(u => u.Username)
                       .HasMaxLength(50)
                       .IsRequired();
 
-                entity.Property(u => u.MatKhau)
+                entity.Property(u => u.Password)
                       .HasMaxLength(50)
                       .IsRequired();
 
-                entity.Property(u => u.ViTri)
+                entity.Property(u => u.Role)
                       .HasMaxLength(20)
                       .IsRequired();
             });
