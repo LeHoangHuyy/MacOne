@@ -1,0 +1,9 @@
+﻿@using Macone.Models.Entities
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model IEnumerable<Category>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a asp-area="User" asp-controller="Home" asp-action="ProductClassification" asp-route-id="@item.MaLoai">@item.TenLoai</a></li>
+    }
+</ul>

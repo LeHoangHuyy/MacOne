@@ -1,11 +1,19 @@
 is_global = true
 build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
 build_property.TargetPlatformMinVersion = 
 build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
 build_property.PlatformNeutralAssembly = 
 build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Macone
 build_property.RootNamespace = Macone
@@ -22,6 +30,18 @@ build_property.EnableCodeStyleSeverity =
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Home/ProductClassification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xIb21lXFByb2R1Y3RDbGFzc2lmaWNhdGlvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/Components/CategoryMenu/Menu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xDYXRlZ29yeU1lbnVcTWVudS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/Components/CategoryTabMenu/TabMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaGFyZWRcQ29tcG9uZW50c1xDYXRlZ29yeVRhYk1lbnVcVGFiTWVudS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shared/_LayoutUserHome.cshtml]
@@ -44,12 +64,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wRGV0YWlsc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/ShopDetails/ProductDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wRGV0YWlsc1xQcm9kdWN0RGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/ShoppingCart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wcGluZ0NhcnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shop/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shop/ProductClassification.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wXFByb2R1Y3RDbGFzc2lmaWNhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/_ViewImports.cshtml]

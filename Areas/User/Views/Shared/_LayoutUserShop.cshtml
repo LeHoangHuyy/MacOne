@@ -1,4 +1,4 @@
-﻿
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -14,18 +14,18 @@
           rel="stylesheet" />
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../../../../user-assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet"
-          href="../../../../user-assets/css/font-awesome.min.css"
+          href="~/user-assets/css/font-awesome.min.css"
           type="text/css" />
-    <link rel="stylesheet" href="../../../../user-assets/css/elegant-icons.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../user-assets/css/nice-select.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../user-assets/css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/jquery-ui.min.css" type="text/css" />
     <link rel="stylesheet"
-          href="../../../../user-assets/css/owl.carousel.min.css"
+          href="~/user-assets/css/owl.carousel.min.css"
           type="text/css" />
-    <link rel="stylesheet" href="../../../../user-assets/css/slicknav.min.css" type="text/css" />
-    <link rel="stylesheet" href="../../../../user-assets/css/style.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -40,8 +40,8 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="./index.html">
-                            <img src="../../../../user-assets/img/logo-macone.png" alt="" />
+                        <a asp-area="User" asp-controller="Home" asp-action="Index">
+                            <img src="~/user-assets/img/logo-macone.png" alt="" />
                         </a>
                     </div>
                 </div>
@@ -49,21 +49,10 @@
                     <nav class="header__menu">
                         <ul>
                             <li>
-                                <a href="../Home/Index">Home</a>
+                                <a asp-area="User" asp-controller="Home" asp-action="Index">Home</a>
                             </li>
                             <li class="active">
-                                <a href="">Shop</a>
-                            </li>
-                            <li>
-                                <a href="#">Pages</a>
-                                <ul class="header__menu__dropdown">
-                                    <li>
-                                        <a href="../ShopDetails/Index">Shop Details</a>
-                                    </li>
-                                    <li>
-                                        <a href="../ShoppingCart/Index">Shoping Cart</a>
-                                    </li>
-                                </ul>
+                                <a asp-area="User" asp-controller="Shop" asp-action="Index">Shop</a>
                             </li>
                         </ul>
                     </nav>
@@ -72,16 +61,16 @@
                     <div class="header__cart">
                         <ul>
                             <li>
-                                <a href="./shoping-cart.html">
-                                    <img src="../../../../user-assets/img/shopping-cart.svg"
+                                <a asp-area="User" asp-controller="ShoppingCart" asp-action="Index">
+                                    <img src="~/user-assets/img/shopping-cart.svg"
                                          alt="" />
                                 </a>
                             </li>
                         </ul>
                         <div class="header__top__right__auth">
-                            <a href="login.html">
-                                <img src="../../../../user-assets/img/user.svg" alt="" />
-                                <span>Login</span>
+                            <a href="">
+                                <img src="~/user-assets/img/user.svg" alt="" />
+                                <span>Logout</span>
                             </a>
                         </div>
                     </div>
@@ -103,19 +92,7 @@
                             <i class="fa fa-bars"></i>
                             <span>All departments</span>
                         </div>
-                        <ul>
-                            <li><a href="#">Fresh Meat</a></li>
-                            <li><a href="#">Vegetables</a></li>
-                            <li><a href="#">Fruit & Nut Gifts</a></li>
-                            <li><a href="#">Fresh Berries</a></li>
-                            <li><a href="#">Ocean Foods</a></li>
-                            <li><a href="#">Butter & Eggs</a></li>
-                            <li><a href="#">Fastfood</a></li>
-                            <li><a href="#">Fresh Onion</a></li>
-                            <li><a href="#">Papayaya & Crisps</a></li>
-                            <li><a href="#">Oatmeal</a></li>
-                            <li><a href="#">Fresh Bananas</a></li>
-                        </ul>
+                        @await Component.InvokeAsync("CategoryMenu")
                     </div>
                 </div>
                 <div class="col-lg-9">
@@ -147,18 +124,7 @@
                     <div class="sidebar">
                         <div class="sidebar__item">
                             <h4>Department</h4>
-                            <ul>
-                                <li><a href="#">Fresh Meat</a></li>
-                                <li><a href="#">Vegetables</a></li>
-                                <li><a href="#">Fruit & Nut Gifts</a></li>
-                                <li><a href="#">Fresh Berries</a></li>
-                                <li><a href="#">Ocean Foods</a></li>
-                                <li><a href="#">Butter & Eggs</a></li>
-                                <li><a href="#">Fastfood</a></li>
-                                <li><a href="#">Fresh Onion</a></li>
-                                <li><a href="#">Papayaya & Crisps</a></li>
-                                <li><a href="#">Oatmeal</a></li>
-                            </ul>
+                            @await Component.InvokeAsync("CategoryMenu")
                         </div>
                         <div class="sidebar__item">
                             <h4>Price</h4>
@@ -262,7 +228,7 @@
                             </div>
                             <div class="col-lg-4 col-md-4">
                                 <div class="filter__found">
-                                    <h6><span>16</span> Products found</h6>
+                                    
                                 </div>
                             </div>
                             <div class="col-lg-4 col-md-3">
@@ -288,7 +254,7 @@
                     <div class="footer__about">
                         <div class="footer__about__logo">
                             <a href="./index.html">
-                                <img src="../../../../user-assets/img/logo-macone.png" alt="" />
+                                <img src="~/user-assets/img/logo-macone.png" alt="" />
                             </a>
                         </div>
                         <ul>
@@ -365,7 +331,7 @@
                             </p>
                         </div>
                         <div class="footer__copyright__payment">
-                            <img src="../../../../user-assets/img/payment-item.png" alt="" />
+                            <img src="~/user-assets/img/payment-item.png" alt="" />
                         </div>
                     </div>
                 </div>
@@ -374,13 +340,13 @@
     </footer>
     <!-- Footer Section End -->
     <!-- Js Plugins -->
-    <script src="../../../../user-assets/js/jquery-3.3.1.min.js"></script>
-    <script src="../../../../user-assets/js/bootstrap.min.js"></script>
-    <script src="../../../../user-assets/js/jquery.nice-select.min.js"></script>
-    <script src="../../../../user-assets/js/jquery-ui.min.js"></script>
-    <script src="../../../../user-assets/js/jquery.slicknav.js"></script>
-    <script src="../../../../user-assets/js/mixitup.min.js"></script>
-    <script src="../../../../user-assets/js/owl.carousel.min.js"></script>
-    <script src="../../../../user-assets/js/main.js"></script>
+    <script src="~/user-assets/js/jquery-3.3.1.min.js"></script>
+    <script src="~/user-assets/js/bootstrap.min.js"></script>
+    <script src="~/user-assets/js/jquery.nice-select.min.js"></script>
+    <script src="~/user-assets/js/jquery-ui.min.js"></script>
+    <script src="~/user-assets/js/jquery.slicknav.js"></script>
+    <script src="~/user-assets/js/mixitup.min.js"></script>
+    <script src="~/user-assets/js/owl.carousel.min.js"></script>
+    <script src="~/user-assets/js/main.js"></script>
 </body>
 </html>

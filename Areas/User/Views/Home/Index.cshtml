@@ -1,7 +1,6 @@
-﻿@using Macone.Models.Entities
-@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Macone.Models.Entities;
+
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "~/Areas/User/Views/Shared/_LayoutUserHome.cshtml";
 }
@@ -10,7 +9,7 @@
 
 @foreach (var item in Model)
 {
-    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+    <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="featured__item">
             <div class="featured__item__pic set-bg"
                  data-setbg="@Url.Content("../../../../user-assets/img/product/" + item.AnhDaiDien)">
@@ -33,8 +32,8 @@
                 </ul>
             </div>
             <div class="featured__item__text">
-                <h6><a href="#">@item.TenSp</a></h6>
-                <h5>@item.Gia</h5>
+                <h6><a asp-area="User" asp-controller="ShopDetails" asp-action="ProductDetail" asp-route-id="@item.MaSp">@item.TenSp</a></h6>
+                <h5>@string.Format("{0:N0}₫", item.Gia)</h5>
             </div>
         </div>
     </div>

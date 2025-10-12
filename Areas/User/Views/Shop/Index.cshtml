@@ -1,6 +1,6 @@
 ﻿@using Macone.Models.Entities
 @using X.PagedList.Mvc.Core
-
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "~/Areas/User/Views/Shared/_LayoutUserShop.cshtml";
 }
@@ -33,15 +33,18 @@
                     </ul>
                 </div>
                 <div class="featured__item__text">
-                    <h6><a href="#">@item.TenSp</a></h6>
-                    <h5>@item.Gia</h5>
+                    <h6><a asp-area="User" asp-controller="ShopDetails" asp-action="ProductDetail" asp-route-id="@item.MaSp">@item.TenSp</a></h6>
+                    <h5>@string.Format("{0:N0}₫", item.Gia)</h5>
                 </div>
             </div>
         </div>
     }
 </div>
 
-<div class="product__pagination d-flex justify-content-center">
-    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-</div>
+@if (Model.PageCount > 1)
+{
+    <div class="product__pagination d-flex justify-content-center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+}
 
