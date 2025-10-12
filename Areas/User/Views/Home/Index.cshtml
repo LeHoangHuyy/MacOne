@@ -1,0 +1,41 @@
+﻿@using Macone.Models.Entities
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = "~/Areas/User/Views/Shared/_LayoutUserHome.cshtml";
+}
+@model List<Product>
+
+
+@foreach (var item in Model)
+{
+    <div class="col-lg-3 col-md-4 col-sm-6 mix oranges fresh-meat">
+        <div class="featured__item">
+            <div class="featured__item__pic set-bg"
+                 data-setbg="@Url.Content("../../../../user-assets/img/product/" + item.AnhDaiDien)">
+                <ul class="featured__item__pic__hover">
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-heart"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-retweet"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="featured__item__text">
+                <h6><a href="#">@item.TenSp</a></h6>
+                <h5>@item.Gia</h5>
+            </div>
+        </div>
+    </div>
+}
