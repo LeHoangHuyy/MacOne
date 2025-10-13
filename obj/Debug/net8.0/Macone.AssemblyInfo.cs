@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Macone")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c806bd6a52d494160c2f1c6355f0009f38507bcf")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd7469d2f325e58afb840edbeb4d1445615d05a7")]
 [assembly: System.Reflection.AssemblyProductAttribute("Macone")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Macone")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

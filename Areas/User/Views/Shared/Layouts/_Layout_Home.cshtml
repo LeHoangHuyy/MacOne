@@ -1,6 +1,7 @@
 ﻿@{
     Layout = "~/Areas/User/Views/Shared/Layouts/Base/_Layout_Base.cshtml";
 }
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <!-- Page Preloder -->
 <div id="preloder">
@@ -19,7 +20,7 @@
                 <div class="hero__categories">
                     <div class="hero__categories__all">
                         <i class="fa fa-bars"></i>
-                        <span>All departments</span>
+                        <span>Loại Sản Phẩm</span>
                     </div>
                     @await Component.InvokeAsync("CategoryMenu")
                 </div>
@@ -29,13 +30,13 @@
                     <div class="hero__search__form">
                         <form action="#">
                             <div class="hero__search__categories">
-                                All Categories
+                                Loại Sản Phẩm
                                 <span class="arrow_carrot-down"></span>
                             </div>
                             <input type="text"
-                                   placeholder="What do yo u need?" />
+                                   placeholder="Bạn cần gì" />
                             <button type="submit" class="site-btn">
-                                SEARCH
+                                Tìm Kiếm
                             </button>
                         </form>
                     </div>
@@ -95,7 +96,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Featured Product</h2>
+                    <h2>Sản Phẩm Nổi Bật</h2>
                 </div>
                 <div class="featured__controls">
                     <ul>
@@ -129,7 +130,3 @@
     </div>
 </div>
 <!-- Banner End -->
-
-<!-- Footer Section Begin -->
-@await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Footer.cshtml")
-<!-- Footer Section End -->

@@ -26,6 +26,18 @@ namespace Macone.Areas.User.Controllers
             PagedList<Product> lst = new PagedList<Product>(listSanPham, pageNumber, pageSize);
             return View(lst);
         }
+        public IActionResult ProductClassification(string id, int? page)
+        {
+            int pageSize = 12;
+            int pageNumber = page == null || page <= 0 ? 1 : page.Value;
 
+            var listSanPham = _db.Products
+                .Where(x => x.CategoryId == id)
+                .OrderBy(x => x.CreatedAt)
+                .ToList();
+
+            PagedList<Product> lst = new PagedList<Product>(listSanPham, pageNumber, pageSize);
+            return View(lst);
+        }
     }
 }
