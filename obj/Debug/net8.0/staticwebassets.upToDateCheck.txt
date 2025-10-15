@@ -230,6 +230,7 @@ wwwroot\user-assets\img\latest-product\lp-2.jpg
 wwwroot\user-assets\img\latest-product\lp-3.jpg
 wwwroot\user-assets\img\logo-macone.png
 wwwroot\user-assets\img\logo.png
+wwwroot\user-assets\img\macone.ico
 wwwroot\user-assets\img\payment-item.png
 wwwroot\user-assets\img\product\airpords-3-1.jpg
 wwwroot\user-assets\img\product\airpords-3-2.jpg

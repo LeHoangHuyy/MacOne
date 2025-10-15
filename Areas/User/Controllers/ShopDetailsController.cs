@@ -14,20 +14,25 @@ namespace Macone.Areas.User.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? id)
         {
-            return View();
-        }
+            if (string.IsNullOrEmpty(id))
+            {
+                return RedirectToAction("Index", "Shop");
+            }
 
-        public IActionResult ProductDetail(string id)
-        {
             var sanPham = _db.Products.SingleOrDefault(x => x.Id == id);
             var anhSanPhams = _db.Images.Where(x => x.ProductId == id).ToList();
+
             if (sanPham == null)
             {
                 return RedirectToAction("Index", "Shop");
             }
-            var sanPhamViewModel = new ProductDetailViewModel(sanPham, anhSanPhams);
+
+            var sanPhamViewModel = new ProductDetailsViewModel(sanPham, anhSanPhams);
+
+            ViewData["Title"] = "Chi tiết sản phẩm";
+
             return View(sanPhamViewModel);
         }
 

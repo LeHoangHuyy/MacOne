@@ -1,6 +1,7 @@
 ﻿using Macone.Data;
 using Macone.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using X.PagedList;
 
 namespace Macone.Areas.User.Controllers
@@ -15,19 +16,20 @@ namespace Macone.Areas.User.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string? id)
         {
-            var listSanPham = _db.Products.Take(8).ToList();
-            return View(listSanPham);
-        }
+            var query = _db.Products.AsNoTracking();
+            
+            if (!string.IsNullOrEmpty(id))
+            {
+                query = query.Where(x => x.CategoryId == id);
+            }
 
-        public IActionResult ProductClassification(string id)
-        {
-            var listSanPham = _db.Products
-                .Where(x => x.CategoryId == id)
-                .Take(8)
-                .ToList();
-            return View(listSanPham);
+            var products = query.OrderByDescending(x => x.CreatedAt).Take(8).ToList();
+
+            ViewData["Title"] = "Trang chủ";
+
+            return View(products);
         }
     }
 }

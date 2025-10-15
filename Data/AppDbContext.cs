@@ -27,7 +27,7 @@ namespace Macone.Data
             modelBuilder.Entity<User>().ToTable("tUser");
 
 
-            // Category (tLoai)
+            // Category
             modelBuilder.Entity<Category>(entity =>
             {
                 entity.HasKey(c => c.Id);
@@ -37,8 +37,10 @@ namespace Macone.Data
                       .IsRequired();
 
                 entity.Property(c => c.Name)
-                      .HasMaxLength(100)
-                      .IsRequired();
+                      .HasMaxLength(100);
+
+                entity.Property(c => c.CreatedAt)
+                      .HasDefaultValueSql("GETDATE()");
 
                 // 1 - n: 1 Category -> n Product
                 entity.HasMany(c => c.Products)
@@ -48,7 +50,7 @@ namespace Macone.Data
             });
 
 
-            // Product (tSanPham)
+            // Product
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.HasKey(p => p.Id);
@@ -58,16 +60,13 @@ namespace Macone.Data
                       .IsRequired();
 
                 entity.Property(p => p.Name)
-                      .HasMaxLength(100)
-                      .IsRequired();
+                      .HasMaxLength(100);
 
                 entity.Property(p => p.CategoryId)
-                      .HasMaxLength(50)
-                      .IsRequired();
+                      .HasMaxLength(50);
 
                 entity.Property(p => p.Price)
-                      .HasColumnType("BIGINT")
-                      .IsRequired();
+                      .HasColumnType("BIGINT");
 
                 entity.Property(p => p.Avatar)
                       .HasMaxLength(200);
@@ -89,7 +88,7 @@ namespace Macone.Data
             });
 
 
-            // Image (tAnh)
+            // Image
             modelBuilder.Entity<Image>(entity =>
             {
                 entity.HasKey(i => i.Id);
@@ -98,15 +97,17 @@ namespace Macone.Data
                       .ValueGeneratedOnAdd();
 
                 entity.Property(i => i.ProductId)
-                      .HasMaxLength(50)
-                      .IsRequired();
+                      .HasMaxLength(50);
 
                 entity.Property(i => i.ImageFileName)
                       .HasMaxLength(100);
+
+                entity.Property(i => i.CreatedAt)
+                      .HasDefaultValueSql("GETDATE()");
             });
             
 
-            //  User (tUser)
+            // User
             modelBuilder.Entity<User>(entity =>
             {
                 entity.HasKey(u => u.Id);
@@ -125,6 +126,9 @@ namespace Macone.Data
                 entity.Property(u => u.Role)
                       .HasMaxLength(20)
                       .IsRequired();
+
+                entity.Property(u => u.CreatedAt)
+                      .HasDefaultValueSql("GETDATE()"); 
             });
         }
     }

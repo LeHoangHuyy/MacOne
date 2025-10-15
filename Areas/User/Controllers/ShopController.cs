@@ -16,27 +16,24 @@ namespace Macone.Areas.User.Controllers
             _db = db;
         }
 
-        public IActionResult Index(int? page)
+        public IActionResult Index(string? id, int? page)
         {
             int pageSize = 12;
             int pageNumber = page == null || page <= 0 ? 1 : page.Value;
 
-            var listSanPham = _db.Products.AsNoTracking().OrderBy(x => x.CreatedAt);
+            var query = _db.Products.AsNoTracking();
 
-            PagedList<Product> lst = new PagedList<Product>(listSanPham, pageNumber, pageSize);
-            return View(lst);
-        }
-        public IActionResult ProductClassification(string id, int? page)
-        {
-            int pageSize = 12;
-            int pageNumber = page == null || page <= 0 ? 1 : page.Value;
+            if (!string.IsNullOrEmpty(id))
+            {
+                query = query.Where(x => x.CategoryId == id);
+            }
 
-            var listSanPham = _db.Products
-                .Where(x => x.CategoryId == id)
-                .OrderBy(x => x.CreatedAt)
-                .ToList();
+            var products = query.OrderBy(x => x.CreatedAt);
 
-            PagedList<Product> lst = new PagedList<Product>(listSanPham, pageNumber, pageSize);
+            PagedList<Product> lst = new PagedList<Product>(products, pageNumber, pageSize);
+
+            ViewData["Title"] = "Cửa hàng";
+
             return View(lst);
         }
     }

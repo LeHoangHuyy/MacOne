@@ -7,6 +7,7 @@ namespace Macone.Areas.User.Controllers
     {
         public IActionResult Index()
         {
+            ViewData["Title"] = "Giỏ Hàng";
             return View();
         }
     }

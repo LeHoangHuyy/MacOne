@@ -6,8 +6,9 @@ namespace Macone.Models.Entities
     public class Image
     {
         public int Id { get; set; }
-        public string ImageFileName { get; set; }
-        public string ProductId { get; set; }
-        public Product SanPham { get; set; }
+        public string? ImageFileName { get; set; }
+        public string? ProductId { get; set; }
+        public DateTime? CreatedAt { get; set; } = DateTime.Now;
+        public Product? SanPham { get; set; }
     }
 }

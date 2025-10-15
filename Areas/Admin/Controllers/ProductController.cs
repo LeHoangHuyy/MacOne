@@ -1,5 +1,9 @@
 ﻿using Macone.Data;
+using Macone.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using X.PagedList;
 
 namespace Macone.Areas.Admin.Controllers
 {
@@ -13,10 +17,120 @@ namespace Macone.Areas.Admin.Controllers
             _db = db;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? page)
         {
-            var products = _db.Products.ToList();
-            return View(products);
+            int pageSize = 3;
+            int pageNumber = page == null || page <= 0 ? 1 : page.Value;
+
+            var products = _db.Products.AsNoTracking().OrderByDescending(x => x.CreatedAt);
+
+            PagedList<Product> lst = new PagedList<Product>(products, pageNumber, pageSize);
+
+            ViewData["Title"] = " - Quản lí sản phẩm";
+
+            return View(lst);
+        }
+
+
+
+        // Create Product
+        [HttpGet]
+        public IActionResult Create()
+        {
+            ViewBag.CategoryId = new SelectList(_db.Categories.ToList(), "Id", "Name");
+
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                product.CreatedAt = DateTime.Now;
+                _db.Products.Add(product);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            
+            ViewBag.CategoryId = new SelectList(_db.Categories.ToList(), "Id", "Name");
+
+            return View(product);
+        }
+
+
+        // Update Product
+        [HttpGet]
+        public IActionResult Update(string id)
+        {
+            var product = _db.Products.FirstOrDefault(x => x.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            ViewBag.CategoryId = new SelectList(_db.Categories.ToList(), "Id", "Name", product.CategoryId);
+            return View(product);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(Product product)
+        {
+            if (ModelState.IsValid)
+            {
+                product.CreatedAt = DateTime.Now;
+                _db.Products.Update(product);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            ViewBag.CategoryId = new SelectList(_db.Categories.ToList(), "Id", "Name", product.CategoryId);
+            return View(product);
+        }
+
+
+        // Delete Product
+        [HttpGet]
+        public IActionResult Delete(string id)
+        {
+            var product = _db.Products.FirstOrDefault(x => x.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Product product)
+        {
+            var prod = _db.Products.FirstOrDefault(x => x.Id == product.Id);
+            if (prod == null)
+            {
+                return NotFound();
+            }
+            _db.Products.Remove(prod);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
+        // Details Product
+        [HttpGet]
+        public IActionResult Details(string id)
+        {
+            var product = _db.Products.Include(p => p.Category).FirstOrDefault(x => x.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return View(product);
+        }
+
+        [HttpPost]
+        public IActionResult Details(Product product)
+        {
+            return RedirectToAction("Index");
         }
     }
 }

@@ -28,32 +28,52 @@ build_property._RazorSourceGeneratorDebug =
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Category/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Category/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Category/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Category/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Category/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ2F0ZWdvcnlcVXBkYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Product/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Product/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Product/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Product/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Product/Update.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdFxVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Shared/Layouts/Base/_Layout_Base.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXExheW91dHNcQmFzZVxfTGF5b3V0X0Jhc2UuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Shared/Layouts/_Layout_Category.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXExheW91dHNcX0xheW91dF9DYXRlZ29yeS5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Shared/Layouts/_Layout_Home.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXExheW91dHNcX0xheW91dF9Ib21lLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Shared/Layouts/_Layout_Product.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXExheW91dHNcX0xheW91dF9Qcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Shared/Partials/_Footer.cshtml]
@@ -66,10 +86,6 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Shared/Partials/_Sidebar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXFBhcnRpYWxzXF9TaWRlYmFyLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/Admin/Views/Shared/_LayoutAdminHome.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbkhvbWUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Home/Index.cshtml]
@@ -116,20 +132,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wRGV0YWlsc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/ShopDetails/ProductDetail.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wRGV0YWlsc1xQcm9kdWN0RGV0YWlsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/ShoppingCart/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wcGluZ0NhcnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shop/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wXEluZGV4LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/Shop/ProductClassification.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVXNlclxWaWV3c1xTaG9wXFByb2R1Y3RDbGFzc2lmaWNhdGlvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/UTC/LapTrinhWeb/BaiTapLon/tmp2/Macone/Areas/User/Views/_ViewImports.cshtml]
