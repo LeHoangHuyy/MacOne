@@ -142,7 +142,6 @@ D:\UTC\LapTrinhWeb\BaiTapLon\tmp2\Macone\bin\Debug\net8.0\X.PagedList.dll
 D:\UTC\LapTrinhWeb\BaiTapLon\tmp2\Macone\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
 D:\UTC\LapTrinhWeb\BaiTapLon\tmp2\Macone\obj\Debug\net8.0\Macone.MvcApplicationPartsAssemblyInfo.cs
 D:\UTC\LapTrinhWeb\BaiTapLon\tmp2\Macone\obj\Debug\net8.0\Macone.sourcelink.json
-D:\UTC\LapTrinhWeb\BaiTapLon\tmp2\Macone\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\UTC\LapTrinhWeb\BaiTapLon\tmp2\Macone\bin\Debug\net8.0\Microsoft.AspNetCore.Razor.Language.dll
 D:\UTC\LapTrinhWeb\BaiTapLon\tmp2\Macone\bin\Debug\net8.0\Microsoft.Build.dll
 D:\UTC\LapTrinhWeb\BaiTapLon\tmp2\Macone\bin\Debug\net8.0\Microsoft.Build.Framework.dll
