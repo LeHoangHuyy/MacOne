@@ -57,6 +57,11 @@ wwwroot\admin-assets\img\favicon.ico
 wwwroot\admin-assets\img\favicon.png
 wwwroot\admin-assets\img\logo-mini.svg
 wwwroot\admin-assets\img\logo.svg
+wwwroot\admin-assets\img\products\6363834f-34d9-4b65-9f32-683e64e21a4d.jpg
+wwwroot\admin-assets\img\products\c4cb31b0-69c5-4af7-a14f-e42a5a53b2bb.jpg
+wwwroot\admin-assets\img\products\c84354a1-159f-490c-8e76-cd21b59a9877.jpg
+wwwroot\admin-assets\img\products\de941f40-ffad-4265-aa03-22f10987e729.jpg
+wwwroot\admin-assets\img\products\f2bf6c81-c4b5-458f-82ca-4fc4636e4b80.jpg
 wwwroot\admin-assets\img\sprites\blue.png
 wwwroot\admin-assets\img\sprites\dark.png
 wwwroot\admin-assets\img\sprites\flag.png

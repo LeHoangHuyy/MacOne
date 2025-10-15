@@ -44,19 +44,63 @@ namespace Macone.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Product product)
+        public async Task<IActionResult> Create(Product product, List<IFormFile> ImageFiles)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
+            //{
+            //    product.CreatedAt = DateTime.Now;
+            //    _db.Products.Add(product);
+            //    _db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+            
+            //ViewBag.CategoryId = new SelectList(_db.Categories.ToList(), "Id", "Name");
+
+            //return View(product);
+
+            if (!ModelState.IsValid)
             {
-                product.CreatedAt = DateTime.Now;
-                _db.Products.Add(product);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
+                return View(product);
             }
             
-            ViewBag.CategoryId = new SelectList(_db.Categories.ToList(), "Id", "Name");
+            _db.Products.Add(product);
+            await _db.SaveChangesAsync();
 
-            return View(product);
+            string uploadDir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/admin-assets/img/products");
+            if (!Directory.Exists(uploadDir))
+            {
+                Directory.CreateDirectory(uploadDir);
+            }
+
+            bool isFirst = true;
+            foreach (var file in ImageFiles)
+            {
+                if (file != null && file.Length > 0)
+                {
+                    string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                    string filePath = Path.Combine(uploadDir, fileName);
+
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+
+                    var image = new Image
+                    {
+                        ImageFileName = fileName,
+                        IsMain = isFirst,
+                        CreatedAt = DateTime.Now,
+                        ProductId = product.Id
+                    };
+                    isFirst = false;
+
+                    _db.Images.Add(image);
+                }
+                
+            }
+
+            await _db.SaveChangesAsync();
+            return RedirectToAction("Index");
         }
 
 

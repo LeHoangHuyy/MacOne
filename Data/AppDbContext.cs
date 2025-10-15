@@ -82,7 +82,7 @@ namespace Macone.Data
 
                 // 1 - n: 1 Product -> n Image
                 entity.HasMany(p => p.Images)
-                      .WithOne(i => i.SanPham)
+                      .WithOne(i => i.Product)
                       .HasForeignKey(i => i.ProductId)
                       .OnDelete(DeleteBehavior.Cascade);
             });
@@ -101,6 +101,9 @@ namespace Macone.Data
 
                 entity.Property(i => i.ImageFileName)
                       .HasMaxLength(100);
+
+                entity.Property(i => i.IsMain)
+                      .HasDefaultValue(false);
 
                 entity.Property(i => i.CreatedAt)
                       .HasDefaultValueSql("GETDATE()");

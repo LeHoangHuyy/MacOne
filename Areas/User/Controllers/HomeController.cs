@@ -18,7 +18,7 @@ namespace Macone.Areas.User.Controllers
 
         public IActionResult Index(string? id)
         {
-            var query = _db.Products.AsNoTracking();
+            var query = _db.Products.Include(p => p.Images).AsNoTracking();
             
             if (!string.IsNullOrEmpty(id))
             {

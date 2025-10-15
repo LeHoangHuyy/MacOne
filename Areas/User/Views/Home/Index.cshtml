@@ -3,16 +3,19 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "~/Areas/User/Views/Shared/Layouts/_Layout_Home.cshtml";
+
 }
 @model List<Product>
 
 
 @foreach (var item in Model)
 {
+    var mainImg = item.Images.FirstOrDefault(i => i.IsMain);
+
     <div class="col-lg-3 col-md-4 col-sm-6">
         <div class="featured__item">
             <div class="featured__item__pic set-bg"
-                 data-setbg="@Url.Content("../../../../user-assets/img/product/" + item.Avatar)">
+                 data-setbg="@Url.Content($"~/admin-assets/img/products/{(mainImg?.ImageFileName ?? " ")}")">
                 <ul class="featured__item__pic__hover">
                     <li>
                         <a href="#">

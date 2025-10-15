@@ -21,7 +21,7 @@ namespace Macone.Areas.User.Controllers
             int pageSize = 12;
             int pageNumber = page == null || page <= 0 ? 1 : page.Value;
 
-            var query = _db.Products.AsNoTracking();
+            var query = _db.Products.Include(p => p.Images).AsNoTracking();
 
             if (!string.IsNullOrEmpty(id))
             {
