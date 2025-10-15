@@ -1,6 +1,7 @@
 ﻿using Macone.Areas.User.ViewModels;
 using Macone.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Macone.Areas.User.Controllers
 {
@@ -21,15 +22,15 @@ namespace Macone.Areas.User.Controllers
                 return RedirectToAction("Index", "Shop");
             }
 
-            var sanPham = _db.Products.SingleOrDefault(x => x.Id == id);
-            var anhSanPhams = _db.Images.Where(x => x.ProductId == id).ToList();
+            var product = _db.Products.Include(p => p.Images).FirstOrDefault(x => x.Id == id);
+            var productImg = _db.Images.Where(x => x.ProductId == id).ToList();
 
-            if (sanPham == null)
+            if (product == null)
             {
                 return RedirectToAction("Index", "Shop");
             }
 
-            var sanPhamViewModel = new ProductDetailsViewModel(sanPham, anhSanPhams);
+            var sanPhamViewModel = new ProductDetailsViewModel(product, productImg);
 
             ViewData["Title"] = "Chi tiết sản phẩm";
 

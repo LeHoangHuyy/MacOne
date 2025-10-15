@@ -1515,7 +1515,7 @@ ol {
     font-weight: 700;
 }
 
-.product__pagination,
+/*.product__pagination,
 .blog__pagination {
     padding-top: 10px;
 }
@@ -1549,7 +1549,7 @@ ol {
 .product__pagination a:last-child,
 .blog__pagination a:last-child {
     margin-right: 0;
-}
+}*/
 
 /*---------------------
   Shop Details

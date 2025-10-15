@@ -1,5 +1,7 @@
 ﻿@{
     Layout = "~/Areas/User/Views/Shared/Layouts/_Layout_Shop_Detail.cshtml";
+
+    var mainImg = Model.Images.FirstOrDefault(i => i.IsMain);
 }
 
 @model Macone.Areas.User.ViewModels.ProductDetailsViewModel
@@ -11,14 +13,14 @@
                 <div class="product__details__pic">
                     <div class="product__details__pic__item">
                         <img class="product__details__pic__item--large"
-                             src="@Url.Content("~/user-assets/img/product/" + Model.Product.Avatar)"
-                             alt="" />
+                             src="@Url.Content($"~/admin-assets/img/products/{(mainImg?.ImageFileName ?? " ")}")"
+                             alt=""/>
                     </div>
                     <div class="product__details__pic__slider owl-carousel">
                         @foreach (var image in Model.Images)
                         {
-                            <img data-imgbigurl="@Url.Content("~/user-assets/img/product/" + image.ImageFileName)"
-                                 src="@Url.Content("~/user-assets/img/product/" + image.ImageFileName)"
+                            <img data-imgbigurl="@Url.Content($"~/admin-assets/img/products/{(image.ImageFileName ?? " ")}")"
+                                 src="@Url.Content($"~/admin-assets/img/products/{(image?.ImageFileName ?? " ")}")"
                                  alt="" />
                         }
 
