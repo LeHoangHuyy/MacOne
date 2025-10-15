@@ -19,7 +19,7 @@ namespace Macone.Areas.Admin.Controllers
 
         public IActionResult Index(int? page)
         {
-            int pageSize = 3;
+            int pageSize = 10;
             int pageNumber = page == null || page <= 0 ? 1 : page.Value;
 
             var products = _db.Products.AsNoTracking().OrderByDescending(x => x.CreatedAt);
@@ -46,18 +46,6 @@ namespace Macone.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Product product, List<IFormFile> ImageFiles)
         {
-            //if (ModelState.IsValid)
-            //{
-            //    product.CreatedAt = DateTime.Now;
-            //    _db.Products.Add(product);
-            //    _db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
-            
-            //ViewBag.CategoryId = new SelectList(_db.Categories.ToList(), "Id", "Name");
-
-            //return View(product);
-
             if (!ModelState.IsValid)
             {
                 return View(product);
@@ -106,7 +94,7 @@ namespace Macone.Areas.Admin.Controllers
 
         // Update Product
         [HttpGet]
-        public IActionResult Update(string id)
+        public IActionResult Update(int id)
         {
             var product = _db.Products.FirstOrDefault(x => x.Id == id);
             if (product == null)
@@ -135,7 +123,7 @@ namespace Macone.Areas.Admin.Controllers
 
         // Delete Product
         [HttpGet]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             var product = _db.Products.FirstOrDefault(x => x.Id == id);
             if (product == null)
@@ -161,7 +149,7 @@ namespace Macone.Areas.Admin.Controllers
 
         // Details Product
         [HttpGet]
-        public IActionResult Details(string id)
+        public IActionResult Details(int id)
         {
             var product = _db.Products.Include(p => p.Category).FirstOrDefault(x => x.Id == id);
             if (product == null)

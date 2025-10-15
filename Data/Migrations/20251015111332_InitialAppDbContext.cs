@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Macone.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class InitialAppDbContext : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,8 +15,10 @@ namespace Macone.Data.Migrations
                 name: "tCategory",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETDATE()")
                 },
                 constraints: table =>
                 {
@@ -31,6 +33,7 @@ namespace Macone.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETDATE()"),
                     Role = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
@@ -42,14 +45,17 @@ namespace Macone.Data.Migrations
                 name: "tProduct",
                 columns: table => new
                 {
-                    Id = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Price = table.Column<long>(type: "BIGINT", nullable: false),
-                    Avatar = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Description = table.Column<string>(type: "NVARCHAR(MAX)", nullable: false),
-                    Information = table.Column<string>(type: "NVARCHAR(MAX)", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValueSql: "GETDATE()"),
-                    CategoryId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Price = table.Column<long>(type: "BIGINT", nullable: true),
+                    Description = table.Column<string>(type: "NVARCHAR(MAX)", nullable: true),
+                    Information = table.Column<string>(type: "NVARCHAR(MAX)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETDATE()"),
+                    Stock = table.Column<int>(type: "INT", nullable: true),
+                    Weight = table.Column<double>(type: "FLOAT", nullable: true),
+                    Size = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
+                    CategoryId = table.Column<int>(type: "int", maxLength: 50, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -68,8 +74,10 @@ namespace Macone.Data.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ImageFileName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    ProductId = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                    ImageFileName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    IsMain = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValueSql: "GETDATE()"),
+                    ProductId = table.Column<int>(type: "INT", nullable: true)
                 },
                 constraints: table =>
                 {

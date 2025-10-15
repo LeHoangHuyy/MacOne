@@ -16,19 +16,16 @@
     <thead>
         <tr>
             <th>
-                Name
+                Product Name
             </th>
             <th>
                 Price
             </th>
             <th>
-                Avatar
+                Created At
             </th>
             <th>
-                CreatedAt
-            </th>
-            <th>
-                CategoryId
+                Category Name
             </th>
             <th> Options</th>
         </tr>
@@ -43,13 +40,10 @@
                 @Html.DisplayFor(modelItem => item.Price)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Avatar)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.CreatedAt)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
+                @Html.DisplayFor(modelItem => item.Category.Name)
             </td>
             <td>
                 <a asp-action="Update" asp-route-id="@item.Id">Update</a> |

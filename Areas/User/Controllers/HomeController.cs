@@ -16,11 +16,11 @@ namespace Macone.Areas.User.Controllers
             _db = db;
         }
 
-        public IActionResult Index(string? id)
+        public IActionResult Index(int? id)
         {
             var query = _db.Products.Include(p => p.Images).AsNoTracking();
             
-            if (!string.IsNullOrEmpty(id))
+            if (id != null)
             {
                 query = query.Where(x => x.CategoryId == id);
             }

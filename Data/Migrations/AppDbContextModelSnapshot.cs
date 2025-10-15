@@ -24,9 +24,11 @@ namespace Macone.Data.Migrations
 
             modelBuilder.Entity("Macone.Models.Entities.Category", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
@@ -59,14 +61,13 @@ namespace Macone.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<bool?>("IsMain")
+                    b.Property<bool>("IsMain")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
-                    b.Property<string>("ProductId")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int?>("ProductId")
+                        .HasColumnType("INT");
 
                     b.HasKey("Id");
 
@@ -77,17 +78,15 @@ namespace Macone.Data.Migrations
 
             modelBuilder.Entity("Macone.Models.Entities.Product", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<string>("Avatar")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CategoryId")
+                    b.Property<int?>("CategoryId")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("int");
 
                     b.Property<DateTime?>("CreatedAt")
                         .ValueGeneratedOnAdd()
@@ -106,6 +105,16 @@ namespace Macone.Data.Migrations
 
                     b.Property<long?>("Price")
                         .HasColumnType("BIGINT");
+
+                    b.Property<string>("Size")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int?>("Stock")
+                        .HasColumnType("INT");
+
+                    b.Property<double?>("Weight")
+                        .HasColumnType("FLOAT");
 
                     b.HasKey("Id");
 

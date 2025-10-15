@@ -16,19 +16,19 @@ namespace Macone.Areas.User.Controllers
             _db = db;
         }
 
-        public IActionResult Index(string? id, int? page)
+        public IActionResult Index(int? id, int? page)
         {
-            int pageSize = 12;
+            int pageSize = 9;
             int pageNumber = page == null || page <= 0 ? 1 : page.Value;
 
             var query = _db.Products.Include(p => p.Images).AsNoTracking();
 
-            if (!string.IsNullOrEmpty(id))
+            if (id != null)
             {
                 query = query.Where(x => x.CategoryId == id);
             }
 
-            var products = query.OrderBy(x => x.CreatedAt);
+            var products = query.OrderByDescending(x => x.CreatedAt);
 
             PagedList<Product> lst = new PagedList<Product>(products, pageNumber, pageSize);
 

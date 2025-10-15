@@ -33,8 +33,7 @@ namespace Macone.Data
                 entity.HasKey(c => c.Id);
 
                 entity.Property(c => c.Id)
-                      .HasMaxLength(50)
-                      .IsRequired();
+                      .ValueGeneratedOnAdd();
 
                 entity.Property(c => c.Name)
                       .HasMaxLength(100);
@@ -56,8 +55,7 @@ namespace Macone.Data
                 entity.HasKey(p => p.Id);
 
                 entity.Property(p => p.Id)
-                      .HasMaxLength(50)
-                      .IsRequired();
+                      .ValueGeneratedOnAdd();
 
                 entity.Property(p => p.Name)
                       .HasMaxLength(100);
@@ -67,9 +65,15 @@ namespace Macone.Data
 
                 entity.Property(p => p.Price)
                       .HasColumnType("BIGINT");
+                
+                entity.Property(p => p.Stock)
+                      .HasColumnType("INT");
 
-                entity.Property(p => p.Avatar)
-                      .HasMaxLength(200);
+                entity.Property(p => p.Weight)
+                      .HasColumnType("FLOAT");
+
+                entity.Property(p => p.Size)
+                      .HasMaxLength(50);
 
                 entity.Property(p => p.Description)
                       .HasColumnType("NVARCHAR(MAX)");
@@ -97,7 +101,7 @@ namespace Macone.Data
                       .ValueGeneratedOnAdd();
 
                 entity.Property(i => i.ProductId)
-                      .HasMaxLength(50);
+                      .HasColumnType("INT");
 
                 entity.Property(i => i.ImageFileName)
                       .HasMaxLength(100);

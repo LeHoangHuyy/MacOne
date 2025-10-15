@@ -16,10 +16,10 @@ namespace Macone.Areas.Admin.Controllers
         }
         public IActionResult Index(int? page)
         {
-            int pageSize = 3;
+            int pageSize = 10;
             int pageNumber = page == null || page <= 0 ? 1 : page.Value;
 
-            var categories = _db.Categories.AsNoTracking().OrderByDescending(x => x.CreatedAt);
+            var categories = _db.Categories.AsNoTracking().OrderBy(x => x.CreatedAt);
 
             PagedList<Category> lst = new PagedList<Category>(categories, pageNumber, pageSize);
 
@@ -53,7 +53,7 @@ namespace Macone.Areas.Admin.Controllers
 
         // Update Category
         [HttpGet]
-        public IActionResult Update(string id)
+        public IActionResult Update(int id)
         {
             var category = _db.Categories.FirstOrDefault(c => c.Id == id);
             if (category == null)
@@ -80,7 +80,7 @@ namespace Macone.Areas.Admin.Controllers
 
         // Delete Category
         [HttpGet]
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
             var category = _db.Categories.FirstOrDefault(c => c.Id == id);
             if (category == null)
@@ -106,7 +106,7 @@ namespace Macone.Areas.Admin.Controllers
 
         // Details Category
         [HttpGet]
-        public IActionResult Details(string id)
+        public IActionResult Details(int id)
         {
             var category = _db.Categories.FirstOrDefault(c => c.Id == id);
             if (category == null)
