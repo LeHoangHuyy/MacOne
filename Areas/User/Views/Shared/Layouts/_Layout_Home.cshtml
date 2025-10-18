@@ -1,132 +1,154 @@
-﻿@{
-    Layout = "~/Areas/User/Views/Shared/Layouts/Base/_Layout_Base.cshtml";
-}
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Ogani Template" />
+    <meta name="keywords" content="Ogani, unica, creative, html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Macone - @ViewData["Title"]</title>
 
-<!-- Header Section Begin -->
-@await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Header.cshtml")
-<!-- Header Section End -->
+    <!-- Icon -->
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+          rel="stylesheet" />
 
-<!-- Hero Section Begin -->
-<section class="hero">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Loại Sản Phẩm</span>
-                    </div>
-                    @await Component.InvokeAsync("CategoryMenu")
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                Loại Sản Phẩm
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text"
-                                   placeholder="Bạn cần gì" />
-                            <button type="submit" class="site-btn">
-                                Tìm Kiếm
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                <div class="hero__item set-bg"
-                     data-setbg="@Url.Content($"~/user-assets/img/hero/banner.jpg")"></div>
-            </div>
-        </div>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/user-assets/img/macone.ico" />
+
+    <!-- Css Styles Common -->
+    <link rel="stylesheet" href="~/user-assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet"
+          href="~/user-assets/css/font-awesome.min.css"
+          type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet"
+          href="~/user-assets/css/owl.carousel.min.css"
+          type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/style.css" type="text/css" />
+
+    <!-- Css Style Specific -->
+    @RenderSection("Styles", required: false)
+
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
     </div>
-</section>
-<!-- Hero Section End -->
 
-<!-- Categories Section Begin -->
-<section class="categories">
-    <div class="container">
-        <div class="row">
-            <div class="categories__slider owl-carousel">
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg"
-                         data-setbg="@Url.Content($"~/user-assets/img/categories/cat-1.jpg")">
-                        <h5><a asp-area="User" asp-controller="Shop" asp-action="Index" asp-route-id="mb">MacBook</a></h5>
+    <!-- Header Section Begin -->
+    @await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Header.cshtml")
+    <!-- Header Section End -->
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="hero__item set-bg"
+             data-setbg="@Url.Content($"~/user-assets/img/hero/banner1.jpg")"></div>
+    </section>
+    <!-- Hero Section End -->
+    <!-- Categories Section Begin -->
+    <section class="categories">
+        <div class="container">
+            <div class="row">
+                <div class="categories__slider owl-carousel">
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg"
+                             data-setbg="@Url.Content($"~/user-assets/img/categories/cat-1.jpg")">
+                            <h5><a asp-area="User" asp-controller="Shop" asp-action="Index">MacBook</a></h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg"
-                         data-setbg="@Url.Content($"~/user-assets/img/categories/cat-2.jpg")">
-                        <h5><a asp-area="User" asp-controller="Shop" asp-action="Index" asp-route-id="iph">iPhone</a></h5>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg"
+                             data-setbg="@Url.Content($"~/user-assets/img/categories/cat-2.jpg")">
+                            <h5><a asp-area="User" asp-controller="Shop" asp-action="Index">iPhone</a></h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg"
-                         data-setbg="@Url.Content($"~/user-assets/img/categories/cat-3.jpg")">
-                        <h5><a asp-area="User" asp-controller="Shop" asp-action="Index" asp-route-id="ip">iPad</a></h5>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg"
+                             data-setbg="@Url.Content($"~/user-assets/img/categories/cat-3.jpg")">
+                            <h5><a asp-area="User" asp-controller="Shop" asp-action="Index">iPad</a></h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg"
-                         data-setbg="@Url.Content($"~/user-assets/img/categories/cat-4.jpg")">
-                        <h5><a asp-area="User" asp-controller="Shop" asp-action="Index" asp-route-id="ap">AirPods</a></h5>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg"
+                             data-setbg="@Url.Content($"~/user-assets/img/categories/cat-4.jpg")">
+                            <h5><a asp-area="User" asp-controller="Shop" asp-action="Index">AirPods</a></h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="categories__item set-bg"
-                         data-setbg="@Url.Content($"~/user-assets/img/categories/cat-5.jpg")">
-                        <h5><a asp-area="User" asp-controller="Shop" asp-action="Index" asp-route-id="m">iMac - Mac Desktop</a></h5>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg"
+                             data-setbg="@Url.Content($"~/user-assets/img/categories/cat-5.jpg")">
+                            <h5><a asp-area="User" asp-controller="Shop" asp-action="Index">iMac</a></h5>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="categories__item set-bg"
+                             data-setbg="@Url.Content($"~/user-assets/img/categories/cat-6.jpg")">
+                            <h5><a asp-area="User" asp-controller="Shop" asp-action="Index">Mac Desktop</a></h5>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- Categories Section End -->
-
-<!-- Featured Section Begin -->
-<section class="featured spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="section-title">
-                    <h2>Sản Phẩm Nổi Bật</h2>
-                </div>
-                <div class="featured__controls">
-                    <ul>
-                        @await Component.InvokeAsync("CategoryTabMenu")
-                    </ul>
+    </section>
+    <!-- Categories Section End -->
+    <!-- Featured Section Begin -->
+    <section class="featured spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>Sản Phẩm Nổi Bật</h2>
+                    </div>
+                    <div class="featured__controls">
+                        <ul>
+                            @await Component.InvokeAsync("CategoryTabMenu")
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row featured__filter">
             @RenderBody()
         </div>
-    </div>
-</section>
-<!-- Featured Section End -->
-
-<!-- Banner Begin -->
-<div class="banner">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="banner__pic">
-                    <img src="~/user-assets/img/banner/banner-1.jpg" alt="" />
+    </section>
+    <!-- Featured Section End -->
+    <!-- Banner Begin -->
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="~/user-assets/img/banner/banner-1.jpg" alt="" />
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6">
-                <div class="banner__pic">
-                    <img src="~/user-assets/img/banner/banner-2.jpg" alt="" />
+                <div class="col-lg-6 col-md-6 col-sm-6">
+                    <div class="banner__pic">
+                        <img src="~/user-assets/img/banner/banner-2.jpg" alt="" />
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Banner End -->
+    <!-- Banner End -->
+    <!-- Footer Section Begin -->
+    @await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Footer.cshtml")
+    <!-- Footer Section End -->
+    <!-- Js Plugins Commom -->
+    <script src="~/user-assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/user-assets/js/bootstrap.min.js"></script>
+    <script src="/user-assets/js/jquery.nice-select.min.js"></script>
+    <script src="/user-assets/js/jquery-ui.min.js"></script>
+    <script src="/user-assets/js/jquery.slicknav.js"></script>
+    <script src="/user-assets/js/mixitup.min.js"></script>
+    <script src="/user-assets/js/owl.carousel.min.js"></script>
+    <script src="/user-assets/js/main.js"></script>
+    <script src="/user-assets/js/tmp.js"></script>
+
+    <!-- Js Plugins Specific-->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

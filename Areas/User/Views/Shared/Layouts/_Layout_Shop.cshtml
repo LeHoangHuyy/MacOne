@@ -1,117 +1,167 @@
-﻿@{
-    Layout = "~/Areas/User/Views/Shared/Layouts/Base/_Layout_Base.cshtml";
-}
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Ogani Template" />
+    <meta name="keywords" content="Ogani, unica, creative, html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Macone - @ViewData["Title"]</title>
 
-<!-- Header Section Begin -->
-@await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Header.cshtml")
-<!-- Header Section End -->
+    <!-- Icon -->
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+          rel="stylesheet" />
 
-<!-- Hero Section Begin -->
-<section class="hero hero-normal">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="hero__categories">
-                    <div class="hero__categories__all">
-                        <i class="fa fa-bars"></i>
-                        <span>Loại Sản Phẩm</span>
-                    </div>
-                    @await Component.InvokeAsync("CategoryMenu")
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="hero__search">
-                    <div class="hero__search__form">
-                        <form action="#">
-                            <div class="hero__search__categories">
-                                Loại Sản Phẩm
-                                <span class="arrow_carrot-down"></span>
-                            </div>
-                            <input type="text"
-                                   placeholder="Bạn cần gì" />
-                            <button type="submit" class="site-btn">
-                                Tìm Kiếm
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/user-assets/img/macone.ico" />
+
+    <!-- Css Styles Common -->
+    <link rel="stylesheet" href="~/user-assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet"
+          href="~/user-assets/css/font-awesome.min.css"
+          type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet"
+          href="~/user-assets/css/owl.carousel.min.css"
+          type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/style.css" type="text/css" />
+
+    <!-- Css Style Specific -->
+    @RenderSection("Styles", required: false)
+
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
     </div>
-</section>
-<!-- Hero Section End -->
 
-<!-- Product Section Begin -->
-<section class="product spad">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-5">
-                <div class="sidebar">
-                    <div class="sidebar__item">
-                        <h4>Danh Mục Sản Phẩm</h4>
+    <!-- Header Section Begin -->
+    @await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Header.cshtml")
+    <!-- Header Section End -->
+    <!-- Hero Section Begin -->
+    <section class="hero hero-normal">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>Loại Sản Phẩm</span>
+                        </div>
                         @await Component.InvokeAsync("CategoryMenu")
                     </div>
-                    <div class="sidebar__item">
-                        <h4>Kích Cỡ Phổ Biến</h4>
-                        <div class="sidebar__item__size">
-                            <label for="tiny">
-                                13 Inch
-                                <input type="radio" id="tiny" />
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="large">
-                                14 Inch
-                                <input type="radio" id="large" />
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="medium">
-                                15 Inch
-                                <input type="radio" id="medium" />
-                            </label>
-                        </div>
-                        <div class="sidebar__item__size">
-                            <label for="small">
-                                16 Inch
-                                <input type="radio" id="small" />
-                            </label>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                            <form action="#">
+                                <div class="hero__search__categories">
+                                    Loại Sản Phẩm
+                                    <span class="arrow_carrot-down"></span>
+                                </div>
+                                <input type="text"
+                                       placeholder="Bạn cần gì" />
+                                <button type="submit" class="site-btn">
+                                    Tìm Kiếm
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-9 col-md-7">
-                <div class="filter__item">
-                    <div class="row">
-                        <div class="col-lg-4 col-md-5">
-                            <div class="filter__sort">
-                                <span>Sort By</span>
-                                <select>
-                                    <option value="0">Default</option>
-                                    <option value="0">Default</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4">
-                            <div class="filter__found">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-3">
-                            <div class="filter__option">
-                                <span class="icon_grid-2x2"></span>
-                                <span class="icon_ul"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                @RenderBody()
             </div>
         </div>
-    </div>
-</section>
-<!-- Product Section End -->
+    </section>
+    <!-- Hero Section End -->
+    <!-- Product Section Begin -->
+    <section class="product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-5">
+                    <div class="sidebar">
+                        <div class="sidebar__item">
+                            <h4>Danh Mục Sản Phẩm</h4>
+                            @await Component.InvokeAsync("CategoryMenu")
+                        </div>
+                        <div class="sidebar__item">
+                            <h4>Kích Cỡ Phổ Biến</h4>
+                            <div class="sidebar__item__size">
+                                <label for="tiny">
+                                    13 Inch
+                                    <input type="radio" id="tiny" />
+                                </label>
+                            </div>
+                            <div class="sidebar__item__size">
+                                <label for="large">
+                                    14 Inch
+                                    <input type="radio" id="large" />
+                                </label>
+                            </div>
+                            <div class="sidebar__item__size">
+                                <label for="medium">
+                                    15 Inch
+                                    <input type="radio" id="medium" />
+                                </label>
+                            </div>
+                            <div class="sidebar__item__size">
+                                <label for="small">
+                                    16 Inch
+                                    <input type="radio" id="small" />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-7">
+                    <div class="filter__item">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-5">
+                                <div class="filter__sort">
+                                    <span>Sort By</span>
+                                    <select>
+                                        <option value="0">Default</option>
+                                        <option value="0">Default</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div class="filter__found">
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-3">
+                                <div class="filter__option">
+                                    <span class="icon_grid-2x2"></span>
+                                    <span class="icon_ul"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Product Section End -->
+    <!-- Footer Section Begin -->
+    @await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Footer.cshtml")
+    <!-- Footer Section End -->
+    <!-- Js Plugins Commom -->
+    <script src="~/user-assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/user-assets/js/bootstrap.min.js"></script>
+    <script src="/user-assets/js/jquery.nice-select.min.js"></script>
+    <script src="/user-assets/js/jquery-ui.min.js"></script>
+    <script src="/user-assets/js/jquery.slicknav.js"></script>
+    <script src="/user-assets/js/mixitup.min.js"></script>
+    <script src="/user-assets/js/owl.carousel.min.js"></script>
+    <script src="/user-assets/js/main.js"></script>
+
+    <!-- Js Plugins Specific-->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

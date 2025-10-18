@@ -1,16 +1,71 @@
-﻿@{
-    Layout = "~/Areas/User/Views/Shared/Layouts/Base/_Layout_Base.cshtml";
-}
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Ogani Template" />
+    <meta name="keywords" content="Ogani, unica, creative, html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Macone - @ViewData["Title"]</title>
 
-<!-- Header Section Begin -->
-@await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Header.cshtml")
-<!-- Header Section End -->
+    <!-- Icon -->
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+          rel="stylesheet" />
 
-<!-- Product Details Section Begin -->
-@RenderBody()
-<!-- Product Details Section End -->
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="~/user-assets/img/macone.ico" />
+
+    <!-- Css Styles Common -->
+    <link rel="stylesheet" href="~/user-assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet"
+          href="~/user-assets/css/font-awesome.min.css"
+          type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/elegant-icons.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/nice-select.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/jquery-ui.min.css" type="text/css" />
+    <link rel="stylesheet"
+          href="~/user-assets/css/owl.carousel.min.css"
+          type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/slicknav.min.css" type="text/css" />
+    <link rel="stylesheet" href="~/user-assets/css/style.css" type="text/css" />
+
+    <!-- Css Style Specific -->
+    @RenderSection("Styles", required: false)
+
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    @await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Header.cshtml")
+    <!-- Header Section End -->
+    <!-- Product Details Section Begin -->
+    @RenderBody()
+    <!-- Product Details Section End -->
+    <!-- Footer Section Begin -->
+    @await Html.PartialAsync("~/Areas/User/Views/Shared/Partials/_Footer.cshtml")
+    <!-- Footer Section End -->
+    <!-- Js Plugins Commom -->
+    <script src="~/user-assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/user-assets/js/bootstrap.min.js"></script>
+    <script src="/user-assets/js/jquery.nice-select.min.js"></script>
+    <script src="/user-assets/js/jquery-ui.min.js"></script>
+    <script src="/user-assets/js/jquery.slicknav.js"></script>
+    <script src="/user-assets/js/mixitup.min.js"></script>
+    <script src="/user-assets/js/owl.carousel.min.js"></script>
+    <script src="/user-assets/js/main.js"></script>
+    <script src="/user-assets/js/tmp.js"></script>
+    <script>
+        console.log("✅ 123jQuery file executed:", typeof $, "Version:", window.jQuery?.fn?.jquery);
+    </script>
+
+    <!-- Js Plugins Specific-->
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

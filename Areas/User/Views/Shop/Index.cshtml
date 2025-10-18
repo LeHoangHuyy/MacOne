@@ -3,60 +3,140 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "~/Areas/User/Views/Shared/Layouts/_Layout_Shop.cshtml";
+    ViewData["Title"] = "Cửa hàng";
 }
 
 @model X.PagedList.IPagedList<Product>
 
-<div class="row">
-    @foreach (var item in Model)
-    {
-        var mainImg = item.Images.FirstOrDefault(i => i.IsMain);
 
-        <div class="col-lg-4 col-md-6 col-sm-6">
-            <div class="product__item">
-                <div class="featured__item__pic set-bg"
-                     data-setbg="@Url.Content($"~/admin-assets/img/products/{(mainImg?.ImageFileName ?? " ")}")">
-                    <ul class="featured__item__pic__hover">
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-heart"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-retweet"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-shopping-cart"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="featured__item__text">
-                    <h6><a asp-area="User" asp-controller="ShopDetails" asp-action="Index" asp-route-id="@item.Id">@item.Name</a></h6>
-                    <h5>@string.Format("{0:N0}₫", item.Price)</h5>
-                </div>
-            </div>
-        </div>
-    }
-</div>
+@* Hien thi san pham *@
+<div class="row" id="shop-products"></div>
 
-@* @if (Model.PageCount > 1)
-{
-    <div class="product__pagination d-flex justify-content-center">
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
-    </div>
-} *@
 
-@if (Model.PageCount > 1)
-{
-    <div class="product__pagination d-flex justify-content-center">
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions(){
-        LiElementClasses = new List<String> { "page-item" },
-        PageClasses = new List<String> { "page-link" }
-        })
-</div>
+@* Phan trang san pham *@
+<div id="pagination"></div>
+
+
+
+@section Scripts {
+    <script>
+        let currentCategoryId = '';
+        let currentPage = 1;
+
+        function loadProducts(page = 1, categoryId = ''){
+            $.ajax({
+                url: `/api/user/ProductApi/Shop?page=${page}${categoryId ? '&categoryId=' + categoryId : ''}`,
+                type: 'GET',
+                success: function(response){
+                    const data = response.products;
+                    const total = response.total;
+                    const pageSize = 9;
+                    const totalPages = Math.ceil(total / pageSize);
+
+
+                    // Hien thi san pham
+                    let html = '';
+                    data.forEach(p => {
+                        html += `
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="featured__item">
+                                     <div class="featured__item__pic set-bg"
+                                              style="background-image: url('../../../../admin-assets/img/products/${p.image}');">
+                                         <ul class="featured__item__pic__hover">
+                                             <li><a href="#"> <i class="fa fa-heart"></i></a></li>
+                                             <li><a href="#"> <i class="fa fa-retweet"></i> </a></li>
+                                             <li><a href="#"> <i class="fa fa-shopping-cart"></i> </a></li>
+                                         </ul>
+                                     </div>
+                                     <div class="featured__item__text">
+                                         <h6><a href="/User/ShopDetails/${p.id}">${p.name}</a></h6>
+                                         <h5>${p.price.toLocaleString('vi-VN')}₫</h5>
+                                     </div>
+                                </div>
+                            </div>`;
+                    });
+                    $('#shop-products').html(html);
+
+
+                    // Phan trang san pham
+                    let paginationHtml = '';
+                    paginationHtml += `<ul class="product__pagination d-flex justify-content-center">`;
+
+                    const maxVisiblePages = 3;
+                    let startPage = Math.max(1, page - Math.floor(maxVisiblePages / 2));
+                    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+                    // Điều chỉnh khi gần trang cuối
+                    if (endPage - startPage + 1 < maxVisiblePages) {
+                        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+                    }
+                    
+                    // Nut <<
+                    if(page > 2){
+                        paginationHtml += `
+                            <li class="page-item">
+                                <a class="page-link" href="#" onclick="loadProducts(1, currentCategoryId)">
+                                    <i class="fa fa-angle-double-left"></i>
+                                </a>
+                            </li>`;
+                    }
+
+                    // Nut <
+                    if (page > 1) {
+                        paginationHtml += `
+                            <li class="page-item">
+                                <a class="page-link" href="#" onclick="loadProducts(${page - 1}, currentCategoryId)">
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+                            </li>`;
+                    }
+
+
+                    for (let i = startPage; i <= endPage; i++) {
+                        paginationHtml += `
+                            <li class="page-item ${i === page ? 'active' : ''}">
+                                <a class="page-link" href="#" onclick="loadProducts(${i}, currentCategoryId)">${i}</a>
+                            </li>`;
+                    }
+
+                    // Nut >
+                    if (page < totalPages) {
+                        paginationHtml += `
+                            <li class="page-item">
+                                <a class="page-link" href="#" onclick="loadProducts(${page + 1}, currentCategoryId)">
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                            </li>`;
+                    }
+
+                    // Nut >>
+                    if(page < totalPages - 1) {
+                        paginationHtml += `
+                            <li class="page-item">
+                                <a class="page-link" href="#" onclick="loadProducts(${totalPages}, currentCategoryId)">
+                                    <i class="fa fa-angle-double-right"></i>
+                                </a>
+                            </li>`;
+                    }
+
+                    paginationHtml += `</ul>`;
+                    $('#pagination').html(paginationHtml);
+
+                }
+            });
+        }
+
+        $(document).ready(function(){
+            loadProducts();
+
+            $('.category-btn').click(function(){
+                currentCategoryId = $(this).data('id');
+                $('.category-btn').removeClass('active');
+                $(this).addClass('active');
+                loadProducts(1, currentCategoryId);
+            });
+        });
+    </script>
 }
+
 
