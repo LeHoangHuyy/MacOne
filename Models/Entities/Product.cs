@@ -1,4 +1,6 @@
-﻿namespace Macone.Models.Entities
+﻿using System.Text.Json.Serialization;
+
+namespace Macone.Models.Entities
 {
     public class Product
     {
@@ -12,6 +14,8 @@
         public double? Weight { get; set; }
         public string? Size { get; set; }
         public int? CategoryId { get; set; }
+
+        [JsonIgnore]
         public  Category? Category { get; set; }
         public  ICollection<Image> Images { get; set; } = new List<Image>();
     }

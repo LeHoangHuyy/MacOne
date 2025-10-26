@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Macone.Areas.User.Controllers.Api
 {
     [Area("User")]
-    [Route("api/user/[controller]")]
+    [Route("api/User/[controller]")]
     [ApiController]
     public class ProductApiController : ControllerBase
     {
@@ -18,7 +18,8 @@ namespace Macone.Areas.User.Controllers.Api
             _context = context;
         }
 
-        [HttpGet("home")]
+        // GET: api/User/Home
+        [HttpGet("Home")]
         public IActionResult GetHomeProducts(int? categoryId)
         {
             var query = _context.Products.Include(p => p.Images).AsNoTracking();
@@ -42,7 +43,8 @@ namespace Macone.Areas.User.Controllers.Api
             return Ok(products);
         }
 
-        [HttpGet("shop")]
+        // GET: api/User/Shop
+        [HttpGet("Shop")]
         public IActionResult GetShopProducts(int? categoryId, int page = 1, int pageSize = 9)
         {
             var query = _context.Products.Include(p => p.Images).AsNoTracking();

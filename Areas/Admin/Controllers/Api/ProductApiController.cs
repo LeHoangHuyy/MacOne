@@ -41,17 +41,21 @@ namespace Macone.Areas.Admin.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var product = await _db.Products.Include(p => p.Category)
-                                            .FirstOrDefaultAsync(p => p.Id == id);
-            if (product == null)
-                return NotFound();
+            var product = await _db.Products
+                .Include(p => p.Category)
+                .FirstOrDefaultAsync(p => p.Id == id);
 
+            if (product == null)
+            {
+                return NotFound();
+            }
+                
             return Ok(product);
         }
 
         // POST: api/Admin/ProductApi
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] Product product)
+        public async Task<IActionResult> Create([FromForm] Product product, List<IFormFile>? ImageFiles)
         {
             product.CreatedAt = DateTime.Now;
             _db.Products.Add(product);
@@ -62,7 +66,7 @@ namespace Macone.Areas.Admin.Controllers
 
         // PUT: api/Admin/ProductApi/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] Product updated)
+        public async Task<IActionResult> Edit(int id, [FromBody] Product updated)
         {
             if (id != updated.Id)
                 return BadRequest("ID mismatch");
@@ -77,6 +81,7 @@ namespace Macone.Areas.Admin.Controllers
             product.Size = updated.Size;
             product.Weight = updated.Weight;
             product.CategoryId = updated.CategoryId;
+            product.CreatedAt = DateTime.Now;
 
             await _db.SaveChangesAsync();
             return Ok(new { message = "Updated successfully!" });
