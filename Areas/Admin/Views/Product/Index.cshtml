@@ -1,66 +1,171 @@
-﻿@using Macone.Models.Entities
-@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@{
+﻿@{
     Layout = "~/Areas/Admin/Views/Shared/Layouts/Base/_Layout_Base.cshtml";
 }
 
-@using X.PagedList.Mvc.Core
-@model X.PagedList.IPagedList<Product>
+<h1>Product Management (AJAX CRUD)</h1>
 
-<h1>Product Management</h1>
+<!-- Button Add -->
+<button class="btn btn-outline-primary mb-3" data-bs-toggle="modal" data-bs-target="#createModal">
+    + Add Product
+</button>
 
-<p>
-    <a asp-action="Create" class="btn btn-outline-primary">Create New</a>
-</p>
-<table class="table table-striped table-hover">
+<!-- Table -->
+<table class="table table-striped table-hover" id="product-table">
     <thead>
         <tr>
-            <th>
-                Product Name
-            </th>
-            <th>
-                Price
-            </th>
-            <th>
-                Created At
-            </th>
-            <th>
-                Category Name
-            </th>
-            <th> Options</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Category</th>
+            <th>Created At</th>
+            <th>Actions</th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
-            <td>
-                <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
+    <tbody></tbody>
 </table>
 
-@if (Model.PageCount > 1)
-{
-    <div class="product__pagination d-flex justify-content-center">
-        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions(){
-            LiElementClasses = new List<String> { "page-item" },
-            PageClasses = new List<String> { "page-link" }
-        })
+<!-- Create -->
+<div class="modal fade" id="createModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><h5>Add Product</h5></div>
+            <div class="modal-body">
+                <form id="createForm" enctype="multipart/form-data">
+                    <input name="Name" class="form-control mb-2" placeholder="Name" required>
+                    <input name="Price" class="form-control mb-2" type="number" placeholder="Price" required>
+                    <input name="Stock" class="form-control mb-2" type="number" placeholder="Stock">
+                    <input name="Size" class="form-control mb-2" placeholder="Size">
+                    <input name="Weight" class="form-control mb-2" placeholder="Weight">
+                    <input type="file" name="ImageFiles" multiple class="form-control mb-2">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
+
+<!-- Edit -->
+<div class="modal fade" id="editModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><h5>Edit Product</h5></div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <input type="hidden" id="editId">
+                    <input id="editName" class="form-control mb-2" placeholder="Name" required>
+                    <input id="editPrice" class="form-control mb-2" type="number" placeholder="Price" required>
+                    <input id="editStock" class="form-control mb-2" type="number" placeholder="Stock">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            loadProducts();
+
+            // 🟢 Load list
+            function loadProducts() {
+                $.get('/api/Admin/ProductApi', function (data) {
+                    let html = '';
+                    $.each(data, function (i, p) {
+                        html += `
+                            <tr>
+                                <td>${p.name}</td>
+                                <td>${p.price}</td>
+                                <td>${p.stock}</td>
+                                <td>${p.categoryName}</td>
+                                <td>${p.createdAt}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary edit-btn" data-id="${p.id}">Edit</button>
+                                    <button class="btn btn-sm btn-outline-danger delete-btn" data-id="${p.id}">Delete</button>
+                                </td>
+                            </tr>`;
+                    });
+                    $('#product-table tbody').html(html);
+                });
+            }
+
+            // 🟢 Create
+            $('#createForm').submit(function (e) {
+                e.preventDefault();
+                const formData = new FormData(this);
+                $.ajax({
+                    url: '/api/Admin/ProductApi',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                        alert(res.message);
+                        $('#createModal').modal('hide');
+                        $('#createForm')[0].reset();
+                        loadProducts();
+                    }
+                });
+            });
+
+            // 🟢 Edit - load data
+            $(document).on('click', '.edit-btn', function () {
+                const id = $(this).data('id');
+                $.get('/api/Admin/ProductApi/' + id, function (p) {
+                    $('#editId').val(p.id);
+                    $('#editName').val(p.name);
+                    $('#editPrice').val(p.price);
+                    $('#editStock').val(p.stock);
+                    $('#editModal').modal('show');
+                });
+            });
+
+            // 🟢 Edit - submit
+            $('#editForm').submit(function (e) {
+                e.preventDefault();
+                const id = $('#editId').val();
+                const product = {
+                    id: parseInt(id),
+                    name: $('#editName').val(),
+                    price: parseFloat($('#editPrice').val()),
+                    stock: parseInt($('#editStock').val())
+                };
+                $.ajax({
+                    url: '/api/Admin/ProductApi/' + id,
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify(product),
+                    success: function (res) {
+                        alert(res.message);
+                        $('#editModal').modal('hide');
+                        loadProducts();
+                    },
+                    error: function (xhr) {
+                        console.log(xhr);
+                        alert('Error: ' + xhr.status + ' ' + xhr.statusText);
+                    }
+                });
+            });
+
+            // 🟢 Delete
+            $(document).on('click', '.delete-btn', function () {
+                const id = $(this).data('id');
+                if (confirm('Are you sure to delete?')) {
+                    $.ajax({
+                        url: '/api/Admin/ProductApi/' + id,
+                        type: 'DELETE',
+                        success: function (res) {
+                            alert(res.message);
+                            loadProducts();
+                        },
+                        error: function (xhr) {
+                            console.log(xhr);
+                            alert('Error: ' + xhr.status + ' ' + xhr.statusText);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 }
+

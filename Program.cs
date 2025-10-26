@@ -14,8 +14,11 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Add repository dependencies
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddControllers(); 
 
 var app = builder.Build();
 
@@ -34,6 +37,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+app.MapControllers();
+
 app.MapControllerRoute(
     name: "areas",
     pattern: "{area:exists}/{controller=Product}/{action=Index}/{id?}"
@@ -41,6 +46,6 @@ app.MapControllerRoute(
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{area=User}/{controller=Home}/{action=Index}/{id?}");
+    pattern: "{area=Admin}/{controller=Product}/{action=Index}/{id?}");
 
 app.Run();

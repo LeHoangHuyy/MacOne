@@ -26,7 +26,6 @@ namespace Macone.Areas.Admin.Controllers
 
             PagedList<Product> lst = new PagedList<Product>(products, pageNumber, pageSize);
 
-            ViewData["Title"] = " - Quản lí sản phẩm";
 
             return View(lst);
         }
