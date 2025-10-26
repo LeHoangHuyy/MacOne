@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 namespace Macone.Areas.User.Controllers
 {
     [Area("User")]
+    [Route("User/ShopDetails")]
+
     public class ShopDetailsController : Controller
     {
         private readonly AppDbContext _db;
@@ -15,6 +17,7 @@ namespace Macone.Areas.User.Controllers
             _db = db;
         }
 
+        [Route("{id}")]
         public IActionResult Index(int? id)
         {
             if (id == null)
@@ -32,15 +35,7 @@ namespace Macone.Areas.User.Controllers
 
             var sanPhamViewModel = new ProductDetailsViewModel(product, productImg);
 
-            ViewData["Title"] = "Chi tiết sản phẩm";
-
             return View(sanPhamViewModel);
-        }
-
-        public IActionResult RandomProduct()
-        {
-            var products = _db.Products.OrderBy(r => Guid.NewGuid()).Take(4).ToList();
-            return View(products);
         }
     }
 }

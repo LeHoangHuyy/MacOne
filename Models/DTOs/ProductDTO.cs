@@ -1,6 +1,8 @@
-﻿namespace Macone.Models.Entities
+﻿using Macone.Models.Entities;
+
+namespace Macone.Models.DTOs
 {
-    public class Product
+    public class ProductDTO
     {
         public int Id { get; set; }
         public string? Name { get; set; }
@@ -12,7 +14,6 @@
         public double? Weight { get; set; }
         public string? Size { get; set; }
         public int? CategoryId { get; set; }
-        public  Category? Category { get; set; }
-        public  ICollection<Image> Images { get; set; } = new List<Image>();
+        public string? CategoryName { get; set; }
     }
 }
