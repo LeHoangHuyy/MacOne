@@ -26,15 +26,19 @@
                 <div class="header__cart">
                     <ul>
                         <li>
-                            <a asp-area="User" asp-controller="ShoppingCart" asp-action="Index">
+                            <a href="#!">
                                 <img src="~/user-assets/img/shopping-cart.svg"
                                      alt="" />
                             </a>
                         </li>
+                        <li>
+                            <a href="#!">
+                                <img src="~/user-assets/img/user.svg" alt="" />
+                            </a>
+                        </li>
                     </ul>
                     <div class="header__top__right__auth">
-                        <a href="">
-                            <img src="~/user-assets/img/user.svg" alt="" />
+                        <a asp-area="" asp-controller="Account" asp-action="Logout">
                             <span>Đăng Xuất</span>
                         </a>
                     </div>
