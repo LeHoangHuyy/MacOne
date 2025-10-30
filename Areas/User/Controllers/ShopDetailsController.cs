@@ -1,7 +1,9 @@
-﻿using Macone.Areas.User.ViewModels;
+﻿using Macone.Areas.User.Services;
+using Macone.Areas.User.ViewModels;
 using Macone.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Macone.Areas.User.Controllers
 {
@@ -10,32 +12,29 @@ namespace Macone.Areas.User.Controllers
 
     public class ShopDetailsController : Controller
     {
-        private readonly AppDbContext _db;
+        private readonly IShopDetailsService _service;
 
-        public ShopDetailsController(AppDbContext db)
+        public ShopDetailsController(IShopDetailsService service)
         {
-            _db = db;
+            _service = service;
         }
 
         [Route("{id}")]
-        public IActionResult Index(int? id)
+        public async Task<IActionResult> Index(int? id)
         {
             if (id == null)
             {
                 return RedirectToAction("Index", "Shop");
             }
 
-            var product = _db.Products.Include(p => p.Images).FirstOrDefault(x => x.Id == id);
-            var productImg = _db.Images.Where(x => x.ProductId == id).ToList();
+            var viewModel = await _service.GetProductDetailsAsync(id.Value);
 
-            if (product == null)
+            if (viewModel == null)
             {
                 return RedirectToAction("Index", "Shop");
             }
 
-            var sanPhamViewModel = new ProductDetailsViewModel(product, productImg);
-
-            return View(sanPhamViewModel);
+            return View(viewModel);
         }
     }
 }

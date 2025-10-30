@@ -34,9 +34,17 @@
                         <input type="password" name="password" placeholder="Password" required />
                     </div>
 
+                    @if (TempData["Success"] != null)
+                    {
+                        <div style="color: green; text-align: center; font-weight: bold;">
+                            @TempData["Success"]
+                        </div>
+                    }
                     @if (ViewBag.Error != null)
                     {
-                        <p style="color:red; text-align:center">@ViewBag.Error</p>
+                        <div style="color: red; text-align: center;">
+                            @ViewBag.Error
+                        </div>
                     }
 
                     <div class="pass-link">
@@ -60,9 +68,17 @@
                         <input type="password" name="Password" placeholder="Password" required />
                     </div>
 
-                    @if (ViewBag.RegError != null)
+                    @if (TempData["Success"] != null)
                     {
-                        <p style="color:red; text-align:center">@ViewBag.RegError</p>
+                        <div style="color: green; text-align: center; font-weight: bold;">
+                            @TempData["Success"]
+                        </div>
+                    }
+                    @if (ViewBag.Error != null)
+                    {
+                        <div style="color: red; text-align: center;">
+                            @ViewBag.Error
+                        </div>
                     }
 
                     <div class="field btn">

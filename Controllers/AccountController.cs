@@ -1,28 +1,26 @@
 ﻿using Macone.Data;
 using Macone.Models.Entities;
+using Macone.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Macone.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly AppDbContext _db;
+        private readonly IAccountService _service;
 
-        public AccountController(AppDbContext db)
+        public AccountController(IAccountService service)
         {
-            _db = db;
+            _service = service;
         }
 
         [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
 
         [HttpPost]
-        public IActionResult Login(string username, string password)
+        public async Task<IActionResult> Login(string username, string password)
         {
-            var user = _db.Users.FirstOrDefault(u => u.Username == username && u.Password == password);
+            var user = await _service.LoginAsync(username, password);
             if (user == null)
             {
                 ViewBag.Error = "Sai tên đăng nhập hoặc mật khẩu !";
@@ -50,19 +48,17 @@ namespace Macone.Controllers
         }
 
         [HttpPost]
-        public IActionResult Register(User user)
+        public async Task<IActionResult> Register(User user)
         {
-            if (_db.Users.Any(u => u.Username == user.Username))
+            var (success, message) = await _service.RegisterAsync(user);
+
+            if (!success)
             {
-                ViewBag.Register = "Tên đăng nhập đã tồn tại!";
+                ViewBag.Error = message;
                 return View("Login");
             }
 
-            user.Role = "USER";
-            _db.Users.Add(user);
-            _db.SaveChanges();
-
-            TempData["Success"] = "Đăng ký thành công! Hãy đăng nhập";
+            TempData["Success"] = message;
             return RedirectToAction("Login");
         }
 

@@ -1,8 +1,7 @@
-﻿using Macone.Data;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Macone.Areas.User.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace Macone.Areas.User.Controllers.Api
 {
@@ -11,63 +10,27 @@ namespace Macone.Areas.User.Controllers.Api
     [ApiController]
     public class ProductApiController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IProductService _service;
 
-        public ProductApiController(AppDbContext context)
+        public ProductApiController(IProductService service)
         {
-            _context = context;
+            _service = service;
         }
 
         // GET: api/User/Home
         [HttpGet("Home")]
-        public IActionResult GetHomeProducts(int? categoryId)
+        public async Task<IActionResult> GetHomeProducts(int? categoryId)
         {
-            var query = _context.Products.Include(p => p.Images).AsNoTracking();
-
-            if (categoryId != null)
-            {
-                query = query.Where(p => p.CategoryId == categoryId);
-            }
-
-            var products = query
-                .OrderByDescending(p => p.CreatedAt)
-                .Take(8)
-                .Select(p => new
-                {
-                    p.Id,
-                    p.Name,
-                    p.Price,
-                    Image = p.Images.FirstOrDefault(i => i.IsMain).ImageFileName
-                })
-                .ToList();
+            var products = await _service.GetHomeProductsAsync(categoryId);
             return Ok(products);
         }
 
         // GET: api/User/Shop
         [HttpGet("Shop")]
-        public IActionResult GetShopProducts(int? categoryId, int page = 1, int pageSize = 9)
+        public async Task<IActionResult> GetShopProducts(int? categoryId, int page = 1, int pageSize = 9)
         {
-            var query = _context.Products.Include(p => p.Images).AsNoTracking();
-
-            if (categoryId != null)
-            {
-                query = query.Where(p => p.CategoryId == categoryId);
-            }
-
-            var total = query.Count();
-
-            var products = query.OrderByDescending(p => p.CreatedAt)
-                .Skip((page - 1) * pageSize)
-                .Take(pageSize)
-                .Select(p => new
-                {
-                    p.Id,
-                    p.Name,
-                    p.Price,
-                    Image = p.Images.FirstOrDefault(i => i.IsMain).ImageFileName
-                }).ToList();
-
-            return Ok(new {total, products});
+            var result =  await _service.GetShopProductsAsynce(categoryId, page, pageSize);
+            return Ok(result);
         }
     }
 }

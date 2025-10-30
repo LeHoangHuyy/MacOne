@@ -1,7 +1,5 @@
 using Macone.Data;
 using Macone.Middlewares;
-using Macone.Repositories;
-using Macone.Repositories.impl;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +10,33 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("MaconeConnection"))
 );
 
-// Add repository dependencies
-builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+// Add repository and service dependencies
+// ------------------- Admin -------------------
+builder.Services.AddScoped<Macone.Areas.Admin.Repositories.IProductRepository,
+                           Macone.Areas.Admin.Repositories.Impl.ProductRepository>();
+builder.Services.AddScoped<Macone.Areas.Admin.Services.IProductService,
+                           Macone.Areas.Admin.Services.Impl.ProductService>();
+builder.Services.AddScoped<Macone.Areas.Admin.Repositories.ICategoryRepository,
+                           Macone.Areas.Admin.Repositories.Impl.CategoryRepository>();
+builder.Services.AddScoped<Macone.Areas.Admin.Services.ICategoryService,
+                           Macone.Areas.Admin.Services.Impl.CategoryService>();
+
+// ------------------- User -------------------
+builder.Services.AddScoped<Macone.Areas.User.Repositories.IProductRepository,
+                           Macone.Areas.User.Repositories.Impl.ProductRepository>();
+builder.Services.AddScoped<Macone.Areas.User.Services.IProductService,
+                           Macone.Areas.User.Services.Impl.ProductService>();
+builder.Services.AddScoped<Macone.Areas.User.Repositories.IShopDetailsRepository,
+                           Macone.Areas.User.Repositories.Impl.ShopDetailsRepository>();
+builder.Services.AddScoped<Macone.Areas.User.Services.IShopDetailsService,
+                           Macone.Areas.User.Services.Impl.ShopDetailsService>();
+
+// ------------------- Account -------------------
+builder.Services.AddScoped<Macone.Repositories.IUserRepository,
+                           Macone.Repositories.Impl.UserRepository>();
+builder.Services.AddScoped<Macone.Services.IAccountService,
+                           Macone.Services.Impl.AccountService>();
+
 
 
 // Add services to the container.
@@ -36,7 +59,6 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -48,7 +70,7 @@ app.UseRouting();
 
 app.UseSession();
 
-app.UseAuthMiddleware();
+//app.UseAuthMiddleware();
 
 app.UseAuthorization();
 
