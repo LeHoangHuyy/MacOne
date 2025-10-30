@@ -70,7 +70,7 @@ app.UseRouting();
 
 app.UseSession();
 
-//app.UseAuthMiddleware();
+app.UseAuthMiddleware();
 
 app.UseAuthorization();
 
