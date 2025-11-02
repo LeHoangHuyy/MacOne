@@ -27,7 +27,7 @@ namespace Macone.Areas.Admin.Repositories.Impl
         public async Task<Product?> GetByIdAsync(int id)
         {
             return await _db.Products
-                .Include(p => p.Images)                                                                     // Cái này nên bỏ đi
+                .Include(p => p.Images)        
                 .FirstOrDefaultAsync(p => p.Id == id);
         }
 
@@ -38,7 +38,6 @@ namespace Macone.Areas.Admin.Repositories.Impl
                 .OrderByDescending(p => p.CreatedAt)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
-                .Include(p => p.Images)                                                                     // Cái này nên bỏ đi
                 .ToListAsync();
         }
 
