@@ -1,9 +1,6 @@
 ﻿using Macone.Areas.User.Services;
-using Macone.Areas.User.ViewModels;
-using Macone.Data;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
+
 
 namespace Macone.Areas.User.Controllers
 {

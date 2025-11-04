@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Macone.Models.Entities
+﻿namespace Macone.Models.Entities
 {
     public class Category
     {

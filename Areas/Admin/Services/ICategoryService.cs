@@ -1,4 +1,5 @@
 ﻿using Macone.Areas.Admin.Repositories;
+using Macone.Models.DTOs;
 using Macone.Models.Entities;
 
 namespace Macone.Areas.Admin.Services
@@ -7,8 +8,8 @@ namespace Macone.Areas.Admin.Services
     {
         Task<List<Category>> GetAllAsync();
         Task<Category?> GetByIdAsync(int id);
-        Task CreateAsync(Category category);
-        Task UpdateAsync(int id, Category category);
+        Task CreateAsync(CategoryDTO dto);
+        Task UpdateAsync(int id, CategoryDTO dto);
         Task DeleteAsync(int id);
     }
 }

@@ -270,8 +270,14 @@
                         loadProducts(currentPage);
                     },
                     error: function (xhr) {
-                        console.log(xhr);
-                        alert('Error creating product');
+                        $(".text-danger").text("");
+                        if (xhr.status === 400 && xhr.responseJSON?.errors) {
+                            const errors = xhr.responseJSON.errors;
+                            for (const key in errors) {
+                                $(`[name='${key}']`).closest('.mb-3')
+                                    .append(`<div class="text-danger">${errors[key][0]}</div>`);
+                            }
+                        }
                     }
                 });
             });
@@ -330,8 +336,14 @@
                         loadProducts(currentPage);
                     },
                     error: function (xhr) {
-                        console.log(xhr);
-                        alert('Error updating product');
+                        $(".text-danger").text("");
+                        if (xhr.status === 400 && xhr.responseJSON?.errors) {
+                            const errors = xhr.responseJSON.errors;
+                            for (const key in errors) {
+                                $(`[name='${key}']`).closest('.mb-3')
+                                    .append(`<div class="text-danger">${errors[key][0]}</div>`);
+                            }
+                        }
                     }
                 });
             });

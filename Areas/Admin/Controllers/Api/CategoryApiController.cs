@@ -1,7 +1,5 @@
-﻿using Macone.Areas.Admin.Repositories;
-using Macone.Areas.Admin.Services;
-using Macone.Data;
-using Macone.Models.Entities;
+﻿using Macone.Areas.Admin.Services;
+using Macone.Models.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Macone.Areas.Admin.Controllers.Api
@@ -33,17 +31,25 @@ namespace Macone.Areas.Admin.Controllers.Api
 
         // POST: api/Admin/CategoryApi
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm] Category category)
+        public async Task<IActionResult> Create([FromForm] CategoryDTO dto)
         {
-            await _service.CreateAsync(category);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await _service.CreateAsync(dto);
             return Ok(new { message = "Created successfully" });
         }
 
         // PUT: api/Admin/CategoryApi/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] Category category)
+        public async Task<IActionResult> Update(int id, [FromBody] CategoryDTO dto)
         {
-            await _service.UpdateAsync(id, category);
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            await _service.UpdateAsync(id, dto);
             return Ok(new { message = "Updated successfully!" });
         }
 

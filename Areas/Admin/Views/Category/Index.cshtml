@@ -102,6 +102,16 @@
                         $('#createModal').modal('hide');
                         $('#createForm')[0].reset();
                         loadProducts();
+                    },
+                    error: function (xhr) {
+                        $(".text-danger").text("");
+                        if (xhr.status === 400 && xhr.responseJSON?.errors) {
+                            const errors = xhr.responseJSON.errors;
+                            for (const key in errors) {
+                                $(`[name='${key}']`).closest('.mb-3')
+                                    .append(`<div class="text-danger">${errors[key][0]}</div>`);
+                            }
+                        }
                     }
                 });
             });
@@ -135,9 +145,16 @@
                         loadProducts();
                     },
                     error: function (xhr) {
-                        console.log(xhr);
-                        alert('Error: ' + xhr.status + ' ' + xhr.statusText);
+                        $(".text-danger").text("");
+                        if (xhr.status === 400 && xhr.responseJSON?.errors) {
+                            const errors = xhr.responseJSON.errors;
+                            for (const key in errors) {
+                                $(`[name='${key}']`).closest('.mb-3')
+                                    .append(`<div class="text-danger">${errors[key][0]}</div>`);
+                            }
+                        }
                     }
+
                 });
             });
 

@@ -1,5 +1,4 @@
-﻿using Macone.Data;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Macone.Areas.User.Controllers
 {

@@ -1,4 +1,5 @@
 ﻿using Macone.Areas.Admin.Repositories;
+using Macone.Models.DTOs;
 using Macone.Models.Entities;
 
 namespace Macone.Areas.Admin.Services.Impl
@@ -12,9 +13,13 @@ namespace Macone.Areas.Admin.Services.Impl
             _repo = repo;
         }
 
-        public async Task CreateAsync(Category category)
+        public async Task CreateAsync(CategoryDTO dto)
         {
-            category.CreatedAt = DateTime.Now;
+            var category = new Category
+            {
+                Name = dto.Name,
+                CreatedAt = DateTime.Now
+            };
             await _repo.CreateAsync(category);
             await _repo.SaveChangesAsync();
         }
@@ -34,7 +39,7 @@ namespace Macone.Areas.Admin.Services.Impl
         public async Task<List<Category>> GetAllAsync() => await _repo.GetAllAsync();
 
         public async Task<Category?> GetByIdAsync(int id) => await _repo.GetByIdAsync(id);
-        public async Task UpdateAsync(int id, Category category)
+        public async Task UpdateAsync(int id, CategoryDTO dto)
         {
             var existing = await _repo.GetByIdAsync(id);
             if (existing == null)
@@ -43,7 +48,7 @@ namespace Macone.Areas.Admin.Services.Impl
             }
 
             existing.CreatedAt = DateTime.Now;
-            existing.Name = category.Name;
+            existing.Name = dto.Name;
 
             await _repo.UpdateAsync(existing);
             await _repo.SaveChangesAsync();

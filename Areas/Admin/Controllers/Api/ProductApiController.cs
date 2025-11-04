@@ -1,9 +1,6 @@
 ﻿using Macone.Areas.Admin.Services;
-using Macone.Data;
 using Macone.Models.DTOs;
-using Macone.Models.Entities;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace Macone.Areas.Admin.Controllers
 {
@@ -52,6 +49,10 @@ namespace Macone.Areas.Admin.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] ProductDTO dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); 
+            }
             await _service.CreateAsync(dto, GetUploadPath());
             return Ok(new { message = "Created successfully!" });
         }
@@ -60,6 +61,10 @@ namespace Macone.Areas.Admin.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromForm] ProductDTO dto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState); 
+            }
             await _service.UpdateAsync(id, dto, GetUploadPath());
             return Ok(new { message = "Updated successfully!" });
         }
