@@ -83,7 +83,7 @@ Dự án Được tổ chức theo kiến trúc **Repository - Service - Control
 ## Hướng dẫn chạy dự án trên Visual Studio 2022
 
 -   **Bước 1: Clone git repository về máy local**
--   **Bước 2: Cấu hình Database:** Mở file macone.sql có sẵn trong dự án trên VS2022 và Excuted để chạy toàn bộ script
+-   **Bước 2: Cấu hình Database:** Mở file macone.sql có sẵn trong dự án trên VS2022 và Excuted để chạy toàn bộ script (Database Name: macone)
 -   **Bước 3: Cấu hình ConnectionString:**
     1. Tạo mới file appsettings.json.
     2. Copy toàn bộ nội dung từ file appsettings.Example.json sang appsettings.json.
