@@ -88,3 +88,5 @@ Dự án Được tổ chức theo kiến trúc **Repository - Service - Control
     1. Tạo mới file appsettings.json.
     2. Copy toàn bộ nội dung từ file appsettings.Example.json sang appsettings.json.
     3. Cập nhật "YOUR_SERVER" bằng server name trên local của bạn.
+    4. Chạy chương trình như bình thường
+    5. (Tài khoản vào trang admin: Admin - 123)

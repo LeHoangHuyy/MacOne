@@ -244,7 +244,7 @@
 
             // Create product
             $('#createModal').on('show.bs.modal', function () {
-                $.get('/api/Admin/CategoryApi', function (categories) {
+                $.get('/api/admin/categories', function (categories) {
                     const $select = $('#categorySelect');
                     $select.empty().append('<option value="">-- Select Category --</option>');
                     $.each(categories, function (i, c) {
@@ -309,7 +309,7 @@
                 });
 
                 // Load Category dropdown
-                $.get('/api/Admin/CategoryApi', function (categories) {
+                $.get('/api/admin/categories', function (categories) {
                     const $select = $('#editCategorySelect');
                     $select.empty().append('<option value="">-- Select Category --</option>');
                     $.each(categories, function (i, c) {
