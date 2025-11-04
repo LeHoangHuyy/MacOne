@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Layouts\" />
     <Folder Include="wwwroot\admin-assets\img\products\" />
   </ItemGroup>
 
