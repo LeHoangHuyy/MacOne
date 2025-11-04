@@ -172,7 +172,7 @@
             // Load products
             function loadProducts(page = 1) {
                 currentPage = page;
-                $.get(`/api/Admin/ProductApi?page=${page}&pageSize=${pageSize}`, function (response) {
+                $.get(`/api/admin/products?page=${page}&pageSize=${pageSize}`, function (response) {
                     const data = response.products;
                     const total = response.total;
                     const totalPages = Math.ceil(total / pageSize);
@@ -258,7 +258,7 @@
                 const formData = new FormData(this);
 
                 $.ajax({
-                    url: '/api/Admin/ProductApi',
+                    url: '/api/admin/products',
                     type: 'POST',
                     data: formData,
                     processData: false,
@@ -286,7 +286,7 @@
             $(document).on('click', '.edit-btn', function () {
                 const id = $(this).data('id');
 
-                $.get('/api/Admin/ProductApi/' + id, function (p) {
+                $.get('/api/admin/products/' + id, function (p) {
                     $('#editId').val(p.id);
                     $('#editName').val(p.name);
                     $('#editPrice').val(p.price);
@@ -325,7 +325,7 @@
                 const formData = new FormData(this);
 
                 $.ajax({
-                    url: '/api/Admin/ProductApi/' + id,
+                    url: '/api/admin/products/' + id,
                     type: 'PUT',
                     data: formData,
                     processData: false,
@@ -353,7 +353,7 @@
                 const id = $(this).data('id');
                 if (confirm('Are you sure to delete this product?')) {
                     $.ajax({
-                        url: '/api/Admin/ProductApi/' + id,
+                        url: '/api/admin/products/' + id,
                         type: 'DELETE',
                         success: function (res) {
                             alert(res.message);

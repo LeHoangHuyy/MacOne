@@ -68,7 +68,7 @@
 
             // Load list
             function loadProducts() {
-                $.get('/api/Admin/CategoryApi', function (data) {
+                $.get('/api/admin/categories', function (data) {
                     let html = '';
                     $.each(data, function (i, c) {
                         html += `
@@ -92,7 +92,7 @@
                 e.preventDefault();
                 const formData = new FormData(this);
                 $.ajax({
-                    url: '/api/Admin/CategoryApi',
+                    url: '/api/admin/categories',
                     type: 'POST',
                     data: formData,
                     processData: false,
@@ -119,7 +119,7 @@
             // Edit - load data
             $(document).on('click', '.edit-btn', function () {
                 const id = $(this).data('id');
-                $.get('/api/Admin/CategoryApi/' + id, function (p) {
+                $.get('/api/admin/categories/' + id, function (p) {
                     $('#editId').val(p.id);
                     $('#editName').val(p.name);
                     $('#editModal').modal('show');
@@ -135,7 +135,7 @@
                     name: $('#editName').val(),
                 };
                 $.ajax({
-                    url: '/api/Admin/CategoryApi/' + id,
+                    url: '/api/admin/categories/' + id,
                     type: 'PUT',
                     contentType: 'application/json',
                     data: JSON.stringify(product),
@@ -163,7 +163,7 @@
                 const id = $(this).data('id');
                 if (confirm('Are you sure to delete?')) {
                     $.ajax({
-                        url: '/api/Admin/CategoryApi/' + id,
+                        url: '/api/admin/categories/' + id,
                         type: 'DELETE',
                         success: function (res) {
                             alert(res.message);

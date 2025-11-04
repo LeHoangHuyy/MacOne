@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Macone.Areas.Admin.Controllers.Api
 {
     [Area("Admin")]
-    [Route("api/[area]/[controller]")]
+    [Route("api/admin/categories")]
     [ApiController]
     public class CategoryApiController : ControllerBase
     {

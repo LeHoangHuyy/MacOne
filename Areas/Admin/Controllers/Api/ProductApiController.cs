@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Macone.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Route("api/Admin/[controller]")]
+    [Route("api/admin/products")]
     [ApiController]
     public class ProductApiController : ControllerBase
     {
@@ -51,7 +51,7 @@ namespace Macone.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); 
+                return BadRequest(ModelState);
             }
             await _service.CreateAsync(dto, GetUploadPath());
             return Ok(new { message = "Created successfully!" });
@@ -63,7 +63,7 @@ namespace Macone.Areas.Admin.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState); 
+                return BadRequest(ModelState);
             }
             await _service.UpdateAsync(id, dto, GetUploadPath());
             return Ok(new { message = "Updated successfully!" });

@@ -21,7 +21,7 @@
 
         function loadProducts(page = 1, categoryId = ''){
             $.ajax({
-                url: `/api/user/ProductApi/Shop?page=${page}${categoryId ? '&categoryId=' + categoryId : ''}`,
+                url: `/api/user/products/shop?page=${page}${categoryId ? '&categoryId=' + categoryId : ''}`,
                 type: 'GET',
                 success: function(response){
                     const data = response.products;

@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Macone.Areas.User.Controllers.Api
 {
     [Area("User")]
-    [Route("api/User/[controller]")]
+    [Route("api/user/products")]
     [ApiController]
     public class ProductApiController : ControllerBase
     {
@@ -16,7 +16,7 @@ namespace Macone.Areas.User.Controllers.Api
         }
 
         // GET: api/User/Home
-        [HttpGet("Home")]
+        [HttpGet("home")]
         public async Task<IActionResult> GetHomeProducts(int? categoryId)
         {
             var products = await _service.GetHomeProductsAsync(categoryId);
@@ -24,7 +24,7 @@ namespace Macone.Areas.User.Controllers.Api
         }
 
         // GET: api/User/Shop
-        [HttpGet("Shop")]
+        [HttpGet("shop")]
         public async Task<IActionResult> GetShopProducts(int? categoryId, int page = 1, int pageSize = 9)
         {
             var result =  await _service.GetShopProductsAsynce(categoryId, page, pageSize);

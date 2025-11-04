@@ -13,7 +13,7 @@
         $(document).ready(function (){
             function loadProducts(categoryId = ''){
                 $.ajax({
-                    url: '/api/user/ProductApi/Home' + (categoryId ? '?categoryId=' + categoryId : ''),
+                    url: '/api/user/products/home' + (categoryId ? '?categoryId=' + categoryId : ''),
                     type: 'GET',
                     success: function(data){
                         let html = '';
