@@ -76,7 +76,7 @@ Dự án Được tổ chức theo kiến trúc **Repository - Service - Control
 ### Frontend
 
 -   **HTML, CSS, JavaScript.**
--   **jQuery, AJAX.**
+-   **Bootstrap, jQuery, AJAX.**
 
 ---
 
