@@ -51,70 +51,75 @@
                     });
                     $('#shop-products').html(html);
 
+                    if (totalPages > 1){
+                        // Pagination
+                        let paginationHtml = '';
+                        paginationHtml += `<ul class="product__pagination d-flex justify-content-center">`;
 
-                    // Pagination
-                    let paginationHtml = '';
-                    paginationHtml += `<ul class="product__pagination d-flex justify-content-center">`;
+                        const maxVisiblePages = 3;
+                        let startPage = Math.max(1, page - Math.floor(maxVisiblePages / 2));
+                        let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
 
-                    const maxVisiblePages = 3;
-                    let startPage = Math.max(1, page - Math.floor(maxVisiblePages / 2));
-                    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+                        // Adjust as you near the last page
+                        if (endPage - startPage + 1 < maxVisiblePages) {
+                            startPage = Math.max(1, endPage - maxVisiblePages + 1);
+                        }
 
-                    // Adjust as you near the last page
-                    if (endPage - startPage + 1 < maxVisiblePages) {
-                        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+                        // Button <<
+                        if(page > 2){
+                            paginationHtml += `
+                                <li class="page-item">
+                                    <a class="page-link" href="#" onclick="loadProducts(1, currentCategoryId)">
+                                        <i class="fa fa-angle-double-left"></i>
+                                    </a>
+                                </li>`;
+                        }
+
+                        // Button <
+                        if (page > 1) {
+                            paginationHtml += `
+                                <li class="page-item">
+                                    <a class="page-link" href="#" onclick="loadProducts(${page - 1}, currentCategoryId)">
+                                        <i class="fa fa-angle-left"></i>
+                                    </a>
+                                </li>`;
+                        }
+
+
+                        for (let i = startPage; i <= endPage; i++) {
+                            paginationHtml += `
+                                <li class="page-item ${i === page ? 'active' : ''}">
+                                    <a class="page-link" href="#" onclick="loadProducts(${i}, currentCategoryId)">${i}</a>
+                                </li>`;
+                        }
+
+                        // Button >
+                        if (page < totalPages) {
+                            paginationHtml += `
+                                <li class="page-item">
+                                    <a class="page-link" href="#" onclick="loadProducts(${page + 1}, currentCategoryId)">
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                </li>`;
+                        }
+
+                        // Button >>
+                        if(page < totalPages - 1) {
+                            paginationHtml += `
+                                <li class="page-item">
+                                    <a class="page-link" href="#" onclick="loadProducts(${totalPages}, currentCategoryId)">
+                                        <i class="fa fa-angle-double-right"></i>
+                                    </a>
+                                </li>`;
+                        }
+
+                        paginationHtml += `</ul>`;
+                        $('#pagination').html(paginationHtml);
+                    }
+                    else {
+                        $('#pagination').html('');
                     }
                     
-                    // Button <<
-                    if(page > 2){
-                        paginationHtml += `
-                            <li class="page-item">
-                                <a class="page-link" href="#" onclick="loadProducts(1, currentCategoryId)">
-                                    <i class="fa fa-angle-double-left"></i>
-                                </a>
-                            </li>`;
-                    }
-
-                    // Button <
-                    if (page > 1) {
-                        paginationHtml += `
-                            <li class="page-item">
-                                <a class="page-link" href="#" onclick="loadProducts(${page - 1}, currentCategoryId)">
-                                    <i class="fa fa-angle-left"></i>
-                                </a>
-                            </li>`;
-                    }
-
-
-                    for (let i = startPage; i <= endPage; i++) {
-                        paginationHtml += `
-                            <li class="page-item ${i === page ? 'active' : ''}">
-                                <a class="page-link" href="#" onclick="loadProducts(${i}, currentCategoryId)">${i}</a>
-                            </li>`;
-                    }
-
-                    // Button >
-                    if (page < totalPages) {
-                        paginationHtml += `
-                            <li class="page-item">
-                                <a class="page-link" href="#" onclick="loadProducts(${page + 1}, currentCategoryId)">
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>`;
-                    }
-
-                    // Button >>
-                    if(page < totalPages - 1) {
-                        paginationHtml += `
-                            <li class="page-item">
-                                <a class="page-link" href="#" onclick="loadProducts(${totalPages}, currentCategoryId)">
-                                    <i class="fa fa-angle-double-right"></i>
-                                </a>
-                            </li>`;
-                    }
-
-                    paginationHtml += `</ul>`;
-                    $('#pagination').html(paginationHtml);
 
                 }
             });
