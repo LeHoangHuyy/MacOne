@@ -9,7 +9,7 @@ namespace Macone.Models.DTOs
         public string? Name { get; set; }
 
         [Required(ErrorMessage ="Price must requird")]
-        [Range(1, 10000000000, ErrorMessage ="Price must be greater than 0")]
+        [Range(1, 1000000000000, ErrorMessage = "Price must be betwwen 1 and 1000000000000")]
         public long? Price { get; set; }
 
         [StringLength(1000, ErrorMessage = "Description cannot exceed 1000 characters")]
